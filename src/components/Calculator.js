@@ -1,14 +1,28 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { addToHistory } from '../actions/history';
 
-const Calculator = () => {
+
+const Calculator = ( props ) => {
 
     const [ input1, setInput1 ] = useState(0);
     const [ operator, setOperator ] = useState( "+" );
     const [ input2, setInput2 ] = useState(0);
     const [ result, setResult ] = useState(0);
+    const [ historyList, setHistory ] = useState([]);
+
+    const addEquation = ( event ) => {
+        let tempHistory = [...historyList];
+        let newHistory = `${input1}${operator}${input2}=${result}`;
+        tempHistory.push( newHistory);
+        setHistory( tempHistory );
+        props.dispatch( addToHistory( newHistory ));
+        return historyList;
+    }
 
     const calculateResult = ( event ) => {
         event.preventDefault();
+        addEquation();
         switch ( operator ) {
             case "+":
                 setResult( Number( input1 ) + Number(input2) );
@@ -46,9 +60,12 @@ const Calculator = () => {
 
                 <input type="submit" value="Calculate" />
             </form>
+            <h2>Your current equation:</h2>
             <p>{input1}{operator}{input2}={result}</p>
         </>
     )
 }
 
-export default Calculator;
+export default connect(
+    state => { return { historyList: state }}
+)( Calculator );
