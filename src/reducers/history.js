@@ -11,4 +11,4 @@ const addToHistoryReducer = ( state=[], action ) => {
             return state;
     }
 }
-export default addToHistoryReducer;
+export { addToHistoryReducer};
