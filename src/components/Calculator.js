@@ -3,13 +3,33 @@ import React, { useState } from 'react';
 const Calculator = () => {
 
     const [ input1, setInput1 ] = useState(0);
-    const [ operator, setOperator ] = useState( "" );
+    const [ operator, setOperator ] = useState( "+" );
     const [ input2, setInput2 ] = useState(0);
-    const [ history, setHistory ] = useState( "" );
+    const [ result, setResult ] = useState(0);
+
+    const calculateResult = ( event ) => {
+        event.preventDefault();
+        switch ( operator ) {
+            case "+":
+                setResult( Number( input1 ) + Number(input2) );
+                break;
+            case "-":
+                setResult( Number( input1 ) - Number(input2) );
+                break;
+            case "*":
+                setResult( Number( input1 ) * Number(input2) );
+                break;
+            case "/":
+                setResult( Number( input1 ) / Number(input2) );
+                break;
+            default:
+                break;
+        }   
+    }
 
     return (
         <>
-            <form>
+            <form onSubmit={ calculateResult }>
                 <label htmlFor="input1">Enter a number:</label>
                 <input id="input1" type="number" value={ input1 } onChange={e => { setInput1( e.target.value )}}/>
 
@@ -26,6 +46,7 @@ const Calculator = () => {
 
                 <input type="submit" value="Calculate" />
             </form>
+            <p>{input1}{operator}{input2}={result}</p>
         </>
     )
 }
