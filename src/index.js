@@ -5,6 +5,7 @@ import { createStore } from 'redux';
 import { addToHistoryReducer } from './reducers/history';
 import { Provider } from 'react-redux';
 import Title from './components/Title';
+import Calculator from './components/Calculator';
 
 
 const store = createStore( addToHistoryReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
@@ -15,6 +16,7 @@ ReactDOM.render(
   <Provider store={ store }>
     <>
       <Title title="Krisztina's React Calculator" />
+      <Calculator />
     </>
   </Provider>,
   document.getElementById('root')
