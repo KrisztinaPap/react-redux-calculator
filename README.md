@@ -1,3 +1,27 @@
+# Title
+Krisztina's Simple React-Redux Calculator
+
+## Purpose
+To practice using create-react-app, React, and Redux
+
+## Author
+Krisztina Pap
+
+## Last edit
+September 14, 2020
+
+## Resources
+- [npm: UUID](https://www.npmjs.com/package/uuid)
+
+## Trello project board
+https://trello.com/b/XUOo422e/react-redux-calculator
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
