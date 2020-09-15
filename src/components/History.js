@@ -5,7 +5,7 @@ function History ( props ) {
 
     return (
         <>
-            <div className="displayBox">
+            <div id="displayBox2" class="light-box">
                 <h2>Current Session Calculation History:</h2>
                 <ul>
                     { props.root.addToHistoryReducer.map( equation => <li key={equation.id}>{equation.equation} </li>) }

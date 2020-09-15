@@ -50,7 +50,7 @@ const Calculator = ( props ) => {
 
     return (
         <>
-            <form onSubmit={ addEquation }>
+            <form id="form" class="light-box" onSubmit={ addEquation }>
                 <label htmlFor="input1">Enter a number:</label>
                 <input id="input1" type="number" value={ input1 } onChange={e => { setInput1( e.target.value )}}/>
 
@@ -65,9 +65,9 @@ const Calculator = ( props ) => {
                 <label htmlFor="input2">Enter another number:</label>
                 <input id="input2" type="number" value={input2} onChange={e => { setInput2( e.target.value )}}/>
 
-                <input id="submitButton" type="submit" value="Calculate" />
+                <input id="submitButton" class="light-button" type="submit" value="Calculate" />
             </form>
-            <div className="displayBox">
+            <div id="displayBox" class="light-box">
                 <h2>Your current equation:</h2>
                 <p>{newHistory}</p>
             </div>

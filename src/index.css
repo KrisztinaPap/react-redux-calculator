@@ -22,8 +22,9 @@ input, select {
   margin: 1rem auto;
 }
 
-form,
-.displayBox {
+#form,
+#displayBox,
+#displayBox2 {
   width: 80%;
   max-width: 700px;
   padding: 1rem;
