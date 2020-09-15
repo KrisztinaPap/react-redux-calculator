@@ -14,4 +14,12 @@ const addToHistoryReducer = ( state=[], action ) => {
             return state;
     }
 }
-export { addToHistoryReducer};
+
+const changeThemeReducer = ( state=[], action ) => {
+    if ( action.dark === false ) {
+        action.dark = true;
+    } else {
+        action.dark = false;
+    }
+}
+export { addToHistoryReducer, changeThemeReducer };

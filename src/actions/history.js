@@ -7,7 +7,8 @@ const addToHistory = historyContent => {
 
 const changeTheme = () => {
     return {
-        type: 'TOGGLE_THEMES'
+        type: 'TOGGLE_THEMES',
+        dark: false
     };
 }
 
