@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 function History ( props ) {
 
-    console.log("props", props);
     return (
         <>
             <div className="displayBox">

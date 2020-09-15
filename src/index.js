@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import Title from './components/Title';
 import Calculator from './components/Calculator';
 import History from './components/History';
-import { addToHistory } from './actions/history';
+import Theme from './components/Theme';
 
 
 const rootReducer = combineReducers({
@@ -24,6 +24,7 @@ ReactDOM.render(
   <Provider store={ store }>
     <>
       <Title title="Krisztina's React Calculator" />
+      <Theme />
       <Calculator />
       <History />
     </>
