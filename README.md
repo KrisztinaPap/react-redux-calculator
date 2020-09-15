@@ -12,6 +12,8 @@ September 14, 2020
 
 ## Resources
 - [npm: UUID](https://www.npmjs.com/package/uuid)
+- [Web Dev Simplified](https://youtu.be/0ZJgIjIuY7U)
+- Thank-you to Zhen for his advice to look into useEffect!
 
 ## Trello project board
 https://trello.com/b/XUOo422e/react-redux-calculator
