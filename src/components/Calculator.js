@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { addToHistory } from '../actions/history';
+
+
 
 
 const Calculator = ( props ) => {
@@ -9,20 +11,12 @@ const Calculator = ( props ) => {
     const [ operator, setOperator ] = useState( "+" );
     const [ input2, setInput2 ] = useState(0);
     const [ result, setResult ] = useState(0);
+    const [ newHistory, setNewHistory ] = useState("");
     const [ historyList, setHistory ] = useState([]);
 
-    const addEquation = ( event ) => {
-        let tempHistory = [...historyList];
-        let newHistory = `${input1}${operator}${input2}=${result}`;
-        tempHistory.push( newHistory);
-        setHistory( tempHistory );
-        props.dispatch( addToHistory( newHistory ));
-        return historyList;
-    }
 
-    const calculateResult = ( event ) => {
-        event.preventDefault();
-        addEquation();
+    useEffect(() => {
+
         switch ( operator ) {
             case "+":
                 setResult( Number( input1 ) + Number(input2) );
@@ -38,12 +32,27 @@ const Calculator = ( props ) => {
                 break;
             default:
                 break;
-        }   
+        }  
+
+        setNewHistory(`${input1}${operator}${input2}=${result}`);
+    }, [input1, input2, operator, result]);
+
+
+
+    const addEquation = ( event ) => {
+        
+        event.preventDefault();
+
+        let tempHistory = [...historyList];
+        tempHistory.push( newHistory);
+        setHistory( tempHistory );
+        props.dispatch( addToHistory( newHistory ));
+        return historyList;
     }
 
     return (
         <>
-            <form onSubmit={ calculateResult }>
+            <form onSubmit={ addEquation }>
                 <label htmlFor="input1">Enter a number:</label>
                 <input id="input1" type="number" value={ input1 } onChange={e => { setInput1( e.target.value )}}/>
 
@@ -61,7 +70,7 @@ const Calculator = ( props ) => {
                 <input type="submit" value="Calculate" />
             </form>
             <h2>Your current equation:</h2>
-            <p>{input1}{operator}{input2}={result}</p>
+            <p>{newHistory}</p>
         </>
     )
 }
