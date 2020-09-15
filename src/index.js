@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './css/themes.css';
 import { createStore, combineReducers } from 'redux';
 import { addToHistoryReducer, changeThemeReducer } from './reducers/history';
 import { Provider } from 'react-redux';
