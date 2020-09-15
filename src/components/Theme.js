@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { changeTheme } from '../actions/history';
-import { changeThemeReducer } from '../reducers/history';
 
 
 const Theme = ( props ) => {
 
-    const [ isDark, setTheme ] = useState(true);
+    const [ isDark, setTheme ] = useState(false);
    
     const updateTheme = ( ) => {
         
         if ( isDark === true ) { 
-            setTheme( false ); 
+            
           
             document.getElementById("form").classList.remove("dark-box");
             document.getElementById("form").classList.add("light-box");
@@ -25,10 +24,10 @@ const Theme = ( props ) => {
             document.getElementById("submitButton").classList.remove("dark-button");
             document.getElementById("submitButton").classList.add("light-button");
 
-            
+            setTheme( false ); 
            
         } else { 
-            setTheme( true );
+           
             
             document.getElementById("form").classList.remove("light-box");
             document.getElementById("form").classList.add("dark-box");
@@ -41,6 +40,8 @@ const Theme = ( props ) => {
 
             document.getElementById("submitButton").classList.remove("light-button");
             document.getElementById("submitButton").classList.add("dark-button");
+
+            setTheme( true );
         };
         props.dispatch(changeTheme( isDark ));
     }
