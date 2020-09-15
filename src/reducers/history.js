@@ -16,10 +16,13 @@ const addToHistoryReducer = ( state=[], action ) => {
 }
 
 const changeThemeReducer = ( state=[], action ) => {
-    if ( action.dark === false ) {
-        action.dark = true;
+    if ( action.type === 'CHANGE_THEME') {
+        const isDark = state;
+        return isDark;
     } else {
-        action.dark = false;
+        return state;
     }
-}
+    
+}    
+ 
 export { addToHistoryReducer, changeThemeReducer };

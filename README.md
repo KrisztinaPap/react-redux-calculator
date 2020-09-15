@@ -14,7 +14,8 @@ September 15, 2020
 - [Color scheme from colors.co](https://coolors.co/bcb6ff-b8e1ff-a9fff7-94fbab-82aba1)
 - [npm: UUID](https://www.npmjs.com/package/uuid)
 - [Web Dev Simplified](https://youtu.be/0ZJgIjIuY7U)
-- Thank-you to Zhen for his advice to look into useEffect!
+- Thank-you to Zhen Liu for his advice to look into useEffect!
+- Thank-you to Tammy Valgardson for her help figuring out combining reducers!
 
 ## Trello project board
 https://trello.com/b/XUOo422e/react-redux-calculator

@@ -5,10 +5,10 @@ const addToHistory = historyContent => {
     };
 }
 
-const changeTheme = () => {
+const changeTheme = ( ) => {
     return {
-        type: 'TOGGLE_THEMES',
-        dark: false
+        type: 'CHANGE_THEME',
+        isDark: false
     };
 }
 
