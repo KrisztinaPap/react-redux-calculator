@@ -1,6 +1,22 @@
 /* Google Fonts import */
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
+/* Color schemes from colors.co */
+:root {
+  /* Light-mode */
+  --color1: #bcb6ffff;
+  --color2: #b8e1ffff;
+  --color3: #a9fff7ff;
+  --color4: #94fbabff;
+  --color5: #82aba1ff;
+  /* Dark-mode */
+  --color6: #0a0908ff;
+  --color7: #22333bff;
+  --color8: #f2f4f3ff;
+  --color9: #a9927dff;
+  --color10: #5e503fff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +40,8 @@ input, select {
 
 #form,
 #displayBox,
-#displayBox2 {
+#displayBox2,
+#displayBox3 {
   width: 80%;
   max-width: 700px;
   padding: 1rem;
@@ -35,7 +52,9 @@ input, select {
   box-shadow: 10px 10px 5px var(--color5);
 }
 
-#submitButton {
+#submitButton,
+#calculateButton,
+#resetButton {
   padding: 6px 16px;
   border: 2px solid var(--color5);
   background-color: var(--color3);
@@ -43,9 +62,25 @@ input, select {
 }
 
 #submitButton:hover,
-#submitButton:focus {
+#submitButton:focus,
+#calculateButton:hover,
+#calculateButton:focus,
+#resetButton:hover,
+#resetButton:focus {
   cursor: pointer;
   box-shadow: 10px 10px 5px var(--color5);
+}
+
+#result {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 1.6rem;
+  padding: 0.4rem;
+  border: 2px solid var(--color6);
+
+  font-size: 2rem;
+  font-weight: 900;
 }
 
 

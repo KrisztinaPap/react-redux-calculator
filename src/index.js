@@ -7,6 +7,7 @@ import { addToHistoryReducer, changeThemeReducer } from './reducers/history';
 import { Provider } from 'react-redux';
 import Title from './components/Title';
 import Calculator from './components/Calculator';
+import CalculatorOneInput from './components/CalculatorOneInput';
 import History from './components/History';
 import Theme from './components/Theme';
 
@@ -28,6 +29,7 @@ ReactDOM.render(
       <Theme />
       <Calculator />
       <History />
+      <CalculatorOneInput />
     </>
   </Provider>,
   document.getElementById('root')
