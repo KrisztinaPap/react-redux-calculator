@@ -5,10 +5,13 @@ function History ( props ) {
 
     return (
         <>
-            <h2>Current Session Calculation History:</h2>
-            <ul>
-                { props.newHistoryList.map( equation => <li key={equation.id}>{equation.equation} </li>) }
-            </ul>
+            <div className="displayBox">
+                <h2>Current Session Calculation History:</h2>
+                <ul>
+                    { props.newHistoryList.map( equation => <li key={equation.id}>{equation.equation} </li>) }
+                </ul>
+            </div>
+     
         </>
     )
 }

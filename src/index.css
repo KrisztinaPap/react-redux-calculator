@@ -1,13 +1,59 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+/* Color scheme from colors.co */
+:root {
+  --maximum-blue-purple: #bcb6ffff;
+  --uranian-blue: #b8e1ffff;
+  --celeste: #a9fff7ff;
+  --mint-green: #94fbabff;
+  --green-sheen: #82aba1ff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Audiowide', cursive;
+  text-align: center;
 }
+
+h1 {
+  padding: 2rem 0;
+}
+
+h2 {
+  padding-bottom: 1rem;
+}
+
+input, select {
+  display: block;
+  margin: 1rem auto;
+}
+
+form,
+.displayBox {
+  width: 80%;
+  max-width: 700px;
+  padding: 1rem;
+  margin: 1rem auto;
+  border: 4px solid var(--mint-green);
+  border-radius: 10px;
+  background-color: var(--maximum-blue-purple);
+  box-shadow: 10px 10px 5px grey;
+}
+
+#submitButton {
+  padding: 6px 16px;
+  border: 2px solid var(--green-sheen);
+  background-color: var(--celeste);
+  border-radius: 10px;
+}
+
+#submitButton:hover,
+#submitButton:focus {
+  cursor: pointer;
+  box-shadow: 10px 10px 5px grey;
+}
+
+

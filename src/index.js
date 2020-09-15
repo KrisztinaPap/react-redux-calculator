@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { createStore } from 'redux';
 import { addToHistoryReducer } from './reducers/history';
-import { addToHistory } from './actions/history';
 import { Provider } from 'react-redux';
 import Title from './components/Title';
 import Calculator from './components/Calculator';

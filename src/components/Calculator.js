@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { addToHistory } from '../actions/history';
 
 
-
-
 const Calculator = ( props ) => {
 
     const [ input1, setInput1 ] = useState(0);
@@ -67,10 +65,12 @@ const Calculator = ( props ) => {
                 <label htmlFor="input2">Enter another number:</label>
                 <input id="input2" type="number" value={input2} onChange={e => { setInput2( e.target.value )}}/>
 
-                <input type="submit" value="Calculate" />
+                <input id="submitButton" type="submit" value="Calculate" />
             </form>
-            <h2>Your current equation:</h2>
-            <p>{newHistory}</p>
+            <div className="displayBox">
+                <h2>Your current equation:</h2>
+                <p>{newHistory}</p>
+            </div>
         </>
     )
 }
