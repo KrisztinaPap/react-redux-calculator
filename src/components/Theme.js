@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { changeTheme } from '../actions/history';
+import { changeThemeReducer } from '../reducers/history';
 
 
 
@@ -14,6 +16,7 @@ const Theme = ( props ) => {
         } else { 
             setTheme( true );
         };
+        props.dispatch( changeTheme ( isDark ));
     }
 
     return (

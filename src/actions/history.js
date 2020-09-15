@@ -5,10 +5,10 @@ const addToHistory = historyContent => {
     };
 }
 
-const changeTheme = ( ) => {
+const changeTheme = boolean => {
     return {
         type: 'CHANGE_THEME',
-        isDark: false
+        payload: boolean
     };
 }
 

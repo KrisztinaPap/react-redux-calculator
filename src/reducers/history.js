@@ -17,7 +17,7 @@ const addToHistoryReducer = ( state=[], action ) => {
 
 const changeThemeReducer = ( state=[], action ) => {
     if ( action.type === 'CHANGE_THEME') {
-        const isDark = state;
+        const isDark = action.payload;
         return isDark;
     } else {
         return state;
