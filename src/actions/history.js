@@ -4,4 +4,11 @@ const addToHistory = historyContent => {
         payload: historyContent
     };
 }
-export { addToHistory };
+
+const changeTheme = () => {
+    return {
+        type: 'TOGGLE_THEMES'
+    };
+}
+
+export { addToHistory, changeTheme };
