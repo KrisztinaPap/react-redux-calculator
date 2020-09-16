@@ -86,4 +86,8 @@ input, select {
   font-weight: 900;
 }
 
+.centerText {
+  text-align: center;
+}
+
 

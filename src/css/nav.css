@@ -1,0 +1,28 @@
+#nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+#nav ul {
+    margin-left: 0;
+}
+
+#nav li {
+    display: inline;  
+}
+
+#nav a {
+    text-decoration: none;
+    color: var(--color6);
+}
+
+#nav li a:hover,
+#nav li a:focus {
+    color: var(--color1);
+}
+
+#nav li a:active {
+    color: var(--color3);
+}

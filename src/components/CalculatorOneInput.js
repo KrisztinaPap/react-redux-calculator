@@ -97,17 +97,17 @@ function CalculatorOneInput ()
     return (
         <div id="displayBox3" class="light-box">
             <form onSubmit={ breakUpInput }> 
-            <p>OR</p>
+            <p className="centerText">OR</p>
             
                 <label>Enter your equation on one line:</label>
-                <p id="result">{ result }</p>
+                <p id="result" className="centerText">{ result }</p>
                     <input
                         type="text" 
                         name="userInput" 
                         onChange={ event => { setUserInput( event.target.value ) } }
                         value={ userInput }
                         />
-                    <p>* Calculator cannot handle brackets or negative numbers at this time</p>
+                    <p className="centerText">* Calculator cannot handle brackets or negative numbers at this time</p>
                 <input id="calculateButton" type="submit" value="Calculate" /> 
                 <input id="resetButton" type="submit" value="Reset Calculator" onClick={ resetCalculator } /> 
             </form>

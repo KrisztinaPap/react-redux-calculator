@@ -52,7 +52,7 @@ const Calculator = ( props ) => {
         <>
             <div id="displayBox" class="light-box">
                 <h2>Your current equation:</h2>
-                <p>{newHistory}</p>
+                <p className="centerText">{newHistory}</p>
             </div>
             <form id="form" class="light-box" onSubmit={ addEquation }>
                 <label htmlFor="input1">Enter a number:</label>
