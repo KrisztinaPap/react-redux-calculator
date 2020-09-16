@@ -8,7 +8,7 @@ To practice using create-react-app, React, and Redux
 Krisztina Pap
 
 ## Last edit
-September 15, 2020
+September 16, 2020
 
 ## Resources
 - [Color scheme from colors.co](https://coolors.co/bcb6ff-b8e1ff-a9fff7-94fbab-82aba1)

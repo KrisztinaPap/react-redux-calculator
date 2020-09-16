@@ -10,6 +10,7 @@ import Calculator from './components/Calculator';
 import CalculatorOneInput from './components/CalculatorOneInput';
 import History from './components/History';
 import Theme from './components/Theme';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 
 const rootReducer = combineReducers({
