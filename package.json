@@ -1,6 +1,6 @@
 {
   "name": "react-redux-calculator",
-  "homepage": "https://KrisztinaPap.github.io/react-redux-calculator",
+  "homepage": "https://KrisztinaPap.github.io/react-redux-calculator/build",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
