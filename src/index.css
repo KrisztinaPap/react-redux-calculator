@@ -26,7 +26,7 @@
 }
 
 h1 {
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 
 h2 {
@@ -54,7 +54,8 @@ input, select {
 
 #submitButton,
 #calculateButton,
-#resetButton {
+#resetButton,
+#switchThemeButton {
   padding: 6px 16px;
   border: 2px solid var(--color5);
   background-color: var(--color3);
@@ -66,7 +67,9 @@ input, select {
 #calculateButton:hover,
 #calculateButton:focus,
 #resetButton:hover,
-#resetButton:focus {
+#resetButton:focus,
+#switchThemeButton:hover,
+#switchThemeButton:focus {
   cursor: pointer;
   box-shadow: 10px 10px 5px var(--color5);
 }

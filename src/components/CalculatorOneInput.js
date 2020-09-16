@@ -97,8 +97,10 @@ function CalculatorOneInput ()
     return (
         <div id="displayBox3" class="light-box">
             <form onSubmit={ breakUpInput }> 
-            <p id="result">{ result }</p>
+            <p>OR</p>
+            
                 <label>Enter your equation on one line:</label>
+                <p id="result">{ result }</p>
                     <input
                         type="text" 
                         name="userInput" 

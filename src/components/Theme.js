@@ -33,6 +33,8 @@ const Theme = ( props ) => {
             document.getElementById("resetButton").classList.remove("dark-button", "dark-button:hover", "dark-button:focus");
             document.getElementById("resetButton").classList.add("light-button", "light-button:hover", "light-button:focus");
             
+            document.getElementById("switchThemeButton").classList.remove("dark-button", "dark-button:hover", "dark-button:focus");
+            document.getElementById("switchThemeButton").classList.add("light-button", "light-button:hover", "light-button:focus");
 
             setTheme( false ); 
            
@@ -59,6 +61,9 @@ const Theme = ( props ) => {
 
             document.getElementById("resetButton").classList.remove("light-button", "light-button:hover", "light-button:focus");
             document.getElementById("resetButton").classList.add("dark-button", "dark-button:hover", "dark-button:focus");
+
+            document.getElementById("switchThemeButton").classList.remove("light-button", "light-button:hover", "light-button:focus");
+            document.getElementById("switchThemeButton").classList.add("dark-button", "dark-button:hover", "dark-button:focus");
 
             setTheme( true );
         };
