@@ -10,7 +10,9 @@ import Calculator from './components/Calculator';
 import CalculatorOneInput from './components/CalculatorOneInput';
 import History from './components/History';
 import Theme from './components/Theme';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Nav from './components/Nav';
+import Home from './components/Home';
 
 
 const rootReducer = combineReducers({
@@ -27,10 +29,18 @@ ReactDOM.render(
   <Provider store={ store }>
     <>
       <Title title="Krisztina's React Calculator" />
-      <Theme />
-      <Calculator />
-      <History />
-      <CalculatorOneInput />
+      <Router>
+        <Nav />
+        <Route path="/" component={Home} exact />
+        <Route path="/calculator">
+        <Theme />
+          <Calculator />
+          <CalculatorOneInput />
+        </Route>
+        <Route path="/history" component={History} />
+
+      </Router>
+
     </>
   </Provider>,
   document.getElementById('root')
