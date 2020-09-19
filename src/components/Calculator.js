@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { addToHistory } from '../actions/history';
 
 
@@ -12,8 +12,9 @@ const Calculator = ( props ) => {
     const [ newHistory, setNewHistory ] = useState("");
     const [ historyList, setHistory ] = useState([]);
 
-    const history = useSelector(state => state.historyReducer);
-   
+
+    const currentHistory = useSelector(state => state.historyReducer);
+    const dispatch = useDispatch();
 
     useEffect(() => {
 
@@ -40,14 +41,9 @@ const Calculator = ( props ) => {
 
     const addEquation = ( event ) => {
         
-        event.preventDefault();
-
-        let tempHistory = [...historyList];
-        tempHistory.push( newHistory);
-        setHistory( tempHistory );
-        // props.dispatch( addToHistory( newHistory ));
-        // return historyList;
-    
+         event.preventDefault();
+         console.log(event);
+         dispatch(addToHistory(newHistory));    
     }
 
     return (
@@ -56,7 +52,7 @@ const Calculator = ( props ) => {
                 <h2>Your current equation:</h2>
                 <p className="centerText">{newHistory}</p>
             </div>
-            <form id="form" className="light-box" onSubmit={ addEquation }>
+            <form id="form" className="light-box">
                 <label htmlFor="input1">Enter a number:</label>
                 <input id="input1" type="number" value={ input1 } onChange={e => { setInput1( e.target.value )}}/>
 
@@ -71,7 +67,7 @@ const Calculator = ( props ) => {
                 <label htmlFor="input2">Enter another number:</label>
                 <input id="input2" type="number" value={input2} onChange={e => { setInput2( e.target.value )}}/>
 
-                <input id="submitButton" className="light-button" type="submit" value="Calculate" />
+                <input id="submitButton" className="light-button" type="submit" value="Calculate" onClick={ addEquation } />
             </form>
 
         </>
