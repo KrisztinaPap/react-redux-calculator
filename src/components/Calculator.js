@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { addToHistory } from '../actions/history';
 
 
@@ -12,6 +12,8 @@ const Calculator = ( props ) => {
     const [ newHistory, setNewHistory ] = useState("");
     const [ historyList, setHistory ] = useState([]);
 
+    const history = useSelector(state => state.historyReducer);
+   
 
     useEffect(() => {
 
@@ -36,7 +38,6 @@ const Calculator = ( props ) => {
     }, [input1, input2, operator, result]);
 
 
-
     const addEquation = ( event ) => {
         
         event.preventDefault();
@@ -44,17 +45,18 @@ const Calculator = ( props ) => {
         let tempHistory = [...historyList];
         tempHistory.push( newHistory);
         setHistory( tempHistory );
-        props.dispatch( addToHistory( newHistory ));
-        return historyList;
+        // props.dispatch( addToHistory( newHistory ));
+        // return historyList;
+    
     }
 
     return (
         <>
-            <div id="displayBox" class="light-box">
+            <div id="displayBox">
                 <h2>Your current equation:</h2>
                 <p className="centerText">{newHistory}</p>
             </div>
-            <form id="form" class="light-box" onSubmit={ addEquation }>
+            <form id="form" className="light-box" onSubmit={ addEquation }>
                 <label htmlFor="input1">Enter a number:</label>
                 <input id="input1" type="number" value={ input1 } onChange={e => { setInput1( e.target.value )}}/>
 
@@ -69,13 +71,11 @@ const Calculator = ( props ) => {
                 <label htmlFor="input2">Enter another number:</label>
                 <input id="input2" type="number" value={input2} onChange={e => { setInput2( e.target.value )}}/>
 
-                <input id="submitButton" class="light-button" type="submit" value="Calculate" />
+                <input id="submitButton" className="light-button" type="submit" value="Calculate" />
             </form>
 
         </>
     )
 }
 
-export default connect(
-    state => { return { historyList: state }}
-)( Calculator );
+export default Calculator;

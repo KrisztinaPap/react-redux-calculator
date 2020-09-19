@@ -4,7 +4,7 @@ import '../css/home.css';
 function Home () {
     return (
         <>
-            <div class="container">
+            <div className="container">
                 <h2>Welcome to my React/Redux Calculator Project!</h2>
                     <h3>About the project</h3>
                         <p>
@@ -32,6 +32,7 @@ function Home () {
                         </ul>
                         
                     <h3>Instructions: How to use the calculator</h3>
+                        <p></p>
                         <h4>Basic (separate inputs) calculator</h4>
                         <h4>Advanced (one input) calculator</h4>
                         <h4>History (session history)</h4>

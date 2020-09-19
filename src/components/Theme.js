@@ -11,59 +11,59 @@ const Theme = ( props ) => {
         
         if ( isDark === true ) { 
             
-          
-            document.getElementById("form").classList.remove("dark-box");
-            document.getElementById("form").classList.add("light-box");
-
-            document.getElementById("displayBox").classList.remove("dark-box");
-            document.getElementById("displayBox").classList.add("light-box");
-
-            document.getElementById("displayBox2").classList.remove("dark-box");
-            document.getElementById("displayBox2").classList.add("light-box");
-
-            document.getElementById("displayBox3").classList.remove("dark-box");
-            document.getElementById("displayBox3").classList.add("light-box");
-
-            document.getElementById("submitButton").classList.remove("dark-button", "dark-button:hover", "dark-button:focus");
-            document.getElementById("submitButton").classList.add("light-button", "light-button:hover", "light-button:focus");
-
-            document.getElementById("calculateButton").classList.remove("dark-button", "dark-button:hover", "dark-button:focus");
-            document.getElementById("calculateButton").classList.add("light-button", "light-button:hover", "light-button:focus");
-
-            document.getElementById("resetButton").classList.remove("dark-button", "dark-button:hover", "dark-button:focus");
-            document.getElementById("resetButton").classList.add("light-button", "light-button:hover", "light-button:focus");
             
-            document.getElementById("switchThemeButton").classList.remove("dark-button", "dark-button:hover", "dark-button:focus");
-            document.getElementById("switchThemeButton").classList.add("light-button", "light-button:hover", "light-button:focus");
+            // document.getElementById("form").classList.remove("dark-box");
+            // document.getElementById("form").classList.add("light-box");
+
+            // document.getElementById("displayBox").classList.remove("dark-box");
+            // document.getElementById("displayBox").classList.add("light-box");
+
+            // document.getElementById("displayBox2").classList.remove("dark-box");
+            // document.getElementById("displayBox2").classList.add("light-box");
+
+            // document.getElementById("displayBox3").classList.remove("dark-box");
+            // document.getElementById("displayBox3").classList.add("light-box");
+
+            // document.getElementById("submitButton").classList.remove("dark-button", "dark-button:hover", "dark-button:focus");
+            // document.getElementById("submitButton").classList.add("light-button", "light-button:hover", "light-button:focus");
+
+            // document.getElementById("calculateButton").classList.remove("dark-button", "dark-button:hover", "dark-button:focus");
+            // document.getElementById("calculateButton").classList.add("light-button", "light-button:hover", "light-button:focus");
+
+            // document.getElementById("resetButton").classList.remove("dark-button", "dark-button:hover", "dark-button:focus");
+            // document.getElementById("resetButton").classList.add("light-button", "light-button:hover", "light-button:focus");
+            
+            // document.getElementById("switchThemeButton").classList.remove("dark-button", "dark-button:hover", "dark-button:focus");
+            // document.getElementById("switchThemeButton").classList.add("light-button", "light-button:hover", "light-button:focus");
 
             setTheme( false ); 
            
         } else { 
            
             
-            document.getElementById("form").classList.remove("light-box");
-            document.getElementById("form").classList.add("dark-box");
+            // document.getElementById("form").classList.remove("light-box");
+            // document.getElementById("form").classList.add("dark-box");
 
-            document.getElementById("displayBox").classList.remove("light-box");
-            document.getElementById("displayBox").classList.add("dark-box");
+            // document.getElementById("displayBox").classList.remove("light-box");
+            // document.getElementById("displayBox").classList.add("dark-box");
 
-            document.getElementById("displayBox2").classList.remove("light-box");
-            document.getElementById("displayBox2").classList.add("dark-box");
+            // document.getElementById("displayBox2").classList.remove("light-box");
+            // document.getElementById("displayBox2").classList.add("dark-box");
 
-            document.getElementById("displayBox3").classList.remove("light-box");
-            document.getElementById("displayBox3").classList.add("dark-box");
+            // document.getElementById("displayBox3").classList.remove("light-box");
+            // document.getElementById("displayBox3").classList.add("dark-box");
 
-            document.getElementById("submitButton").classList.remove("light-button", "light-button:hover", "light-button:focus");
-            document.getElementById("submitButton").classList.add("dark-button", "dark-button:hover", "dark-button:focus");
+            // document.getElementById("submitButton").classList.remove("light-button", "light-button:hover", "light-button:focus");
+            // document.getElementById("submitButton").classList.add("dark-button", "dark-button:hover", "dark-button:focus");
 
-            document.getElementById("calculateButton").classList.remove("light-button", "light-button:hover", "light-button:focus");
-            document.getElementById("calculateButton").classList.add("dark-button", "dark-button:hover", "dark-button:focus");
+            // document.getElementById("calculateButton").classList.remove("light-button", "light-button:hover", "light-button:focus");
+            // document.getElementById("calculateButton").classList.add("dark-button", "dark-button:hover", "dark-button:focus");
 
-            document.getElementById("resetButton").classList.remove("light-button", "light-button:hover", "light-button:focus");
-            document.getElementById("resetButton").classList.add("dark-button", "dark-button:hover", "dark-button:focus");
+            // document.getElementById("resetButton").classList.remove("light-button", "light-button:hover", "light-button:focus");
+            // document.getElementById("resetButton").classList.add("dark-button", "dark-button:hover", "dark-button:focus");
 
-            document.getElementById("switchThemeButton").classList.remove("light-button", "light-button:hover", "light-button:focus");
-            document.getElementById("switchThemeButton").classList.add("dark-button", "dark-button:hover", "dark-button:focus");
+            // document.getElementById("switchThemeButton").classList.remove("light-button", "light-button:hover", "light-button:focus");
+            // document.getElementById("switchThemeButton").classList.add("dark-button", "dark-button:hover", "dark-button:focus");
 
             setTheme( true );
         };

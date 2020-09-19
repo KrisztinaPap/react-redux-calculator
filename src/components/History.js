@@ -1,14 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function History ( props ) {
 
+    const history = useSelector(state => state.historyReducer);
+    let tempArray = {history};
+    console.log(tempArray);
+
     return (
         <>
-            <div id="displayBox2" class="light-box">
+            <div id="displayBox2">
                 <h2>Current Session Calculation History:</h2>
                 <ul>
-                    { props.root.addToHistoryReducer.map( equation => <li key={equation.id}>{equation.equation} </li>) }
+                    {/* { tempArray.map( equation => <li key={equation.id}>{equation.equation} </li>) } */}
                 </ul>
             </div>
      
@@ -16,4 +20,4 @@ function History ( props ) {
     )
 }
 
-export default connect( state => ( { root: state }))( History );
+export default History;

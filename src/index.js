@@ -2,9 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './css/themes.css';
-import { createStore, combineReducers } from 'redux';
-import { addToHistoryReducer, changeThemeReducer } from './reducers/history';
-import { Provider } from 'react-redux';
 import Title from './components/Title';
 import Calculator from './components/Calculator';
 import CalculatorOneInput from './components/CalculatorOneInput';
@@ -13,12 +10,10 @@ import Theme from './components/Theme';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/Home';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './reducers/index';
 
-
-const rootReducer = combineReducers({
-  addToHistoryReducer,
-  changeThemeReducer
-})
 
 const store = createStore( rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
 
