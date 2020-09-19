@@ -11,11 +11,9 @@ function History ( props ) {
             <div id="displayBox2">
                 <h2>Current Session Calculation History:</h2>
                 <ul>   
-                    { currentHistory }                  
-                  
+                    { currentHistory }                       
                 </ul>
             </div>
-     
         </>
     )
 }

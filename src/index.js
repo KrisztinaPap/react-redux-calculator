@@ -33,9 +33,7 @@ ReactDOM.render(
           <CalculatorOneInput />
         </Route>
         <Route path="/history" component={History} />
-
       </Router>
-
     </>
   </Provider>,
   document.getElementById('root')
