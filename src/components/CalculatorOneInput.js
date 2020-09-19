@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import { addToHistory } from '../actions/history';
+import { useDispatch } from 'react-redux';
 
 function CalculatorOneInput () 
 {
@@ -8,6 +9,8 @@ function CalculatorOneInput ()
     let myNumbers = []; 
     let myOperators = [];
     let newOperatorArray = [];
+
+    const dispatch = useDispatch();
 
 
     const breakUpInput = ( event ) => {
@@ -87,7 +90,15 @@ function CalculatorOneInput ()
 
     const giveFinalResult = () => {
         setResult( myNumbers );
+        addEquation();
+        
     }
+
+    
+    const addEquation = ( ) => {
+        let newHistory = `${userInput}=${myNumbers}`;
+        dispatch(addToHistory(newHistory));    
+   }
 
     const resetCalculator = () => {
         setUserInput("0");
