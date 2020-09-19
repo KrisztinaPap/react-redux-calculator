@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToHistory } from '../actions/history';
 
 
@@ -10,10 +10,6 @@ const Calculator = ( props ) => {
     const [ input2, setInput2 ] = useState(0);
     const [ result, setResult ] = useState(0);
     const [ newHistory, setNewHistory ] = useState("");
-    const [ historyList, setHistory ] = useState([]);
-
-
-    const currentHistory = useSelector(state => state.historyReducer);
     const dispatch = useDispatch();
 
     useEffect(() => {
