@@ -4,15 +4,15 @@ import { useSelector } from 'react-redux';
 function History ( props ) {
 
     const history = useSelector(state => state.historyReducer);
-    let tempArray = {history};
-    console.log(tempArray);
+    const currentHistory = history.map( equation => <li>{equation.equation}</li>);
 
     return (
         <>
             <div id="displayBox2">
                 <h2>Current Session Calculation History:</h2>
-                <ul>
-                    {/* { tempArray.map( equation => <li key={equation.id}>{equation.equation} </li>) } */}
+                <ul>   
+                    { currentHistory }                  
+                  
                 </ul>
             </div>
      

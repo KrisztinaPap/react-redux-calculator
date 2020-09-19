@@ -38,7 +38,6 @@ const Calculator = ( props ) => {
     const addEquation = ( event ) => {
         
          event.preventDefault();
-         console.log(event);
          dispatch(addToHistory(newHistory));    
     }
 
