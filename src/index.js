@@ -6,16 +6,15 @@ import Title from './components/Title';
 import Calculator from './components/Calculator';
 import CalculatorOneInput from './components/CalculatorOneInput';
 import History from './components/History';
-import Theme from './components/Theme';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import rootReducer from './reducers/index';
+import addToHistoryReducer from './reducers/history.js';
 
 
-const store = createStore( rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
+const store = createStore( addToHistoryReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
 
 store.subscribe( () => console.log( store.getState() ) );
 console.log(store.getState());
@@ -28,7 +27,6 @@ ReactDOM.render(
         <Nav />
         <Route path="/" component={Home} exact />
         <Route path="/calculator">
-        <Theme />
           <Calculator />
           <CalculatorOneInput />
         </Route>

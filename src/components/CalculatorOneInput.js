@@ -106,7 +106,7 @@ function CalculatorOneInput ()
     }
 
     return (
-        <div id="displayBox3" className="light-box">
+        <div id="displayBox3">
             <form onSubmit={ breakUpInput }> 
             <p className="centerText">OR</p>
             

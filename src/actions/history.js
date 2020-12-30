@@ -5,11 +5,4 @@ const addToHistory = historyContent => {
     };
 }
 
-const changeTheme = boolean => {
-    return {
-        type: 'CHANGE_THEME',
-        payload: boolean
-    };
-}
-
-export { addToHistory, changeTheme };
+export { addToHistory };
