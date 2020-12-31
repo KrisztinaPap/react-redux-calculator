@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './css/themes.css';
 import Title from './components/Title';
-import Calculator from './components/Calculator';
+//import Calculator from './components/CalculatorOneInput';
 import CalculatorOneInput from './components/CalculatorOneInput';
+import CalculatorTwoInput from './components/CalculatorTwoInput';
 import History from './components/History';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './components/Nav';
@@ -26,9 +27,11 @@ ReactDOM.render(
       <Router>
         <Nav />
         <Route path="/" component={Home} exact />
-        <Route path="/calculator">
-          <Calculator />
+        <Route path="/calculator-one-input">
           <CalculatorOneInput />
+        </Route>
+        <Route path="/calculator-two-input">
+          <CalculatorTwoInput />
         </Route>
         <Route path="/history" component={History} />
       </Router>
