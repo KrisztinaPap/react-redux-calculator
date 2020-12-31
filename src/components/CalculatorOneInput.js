@@ -1,71 +1,128 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 import { addToHistory } from '../actions/history';
+import { useDispatch } from 'react-redux';
 
-
-const CalculatorOneInput = ( props ) => {
-
-    const [ input1, setInput1 ] = useState(0);
-    const [ operator, setOperator ] = useState( "+" );
-    const [ input2, setInput2 ] = useState(0);
+function CalculatorOneInput () 
+{
+    const [ userInput, setUserInput ] = useState("");
     const [ result, setResult ] = useState(0);
-    const [ newHistory, setNewHistory ] = useState("");
+    let myNumbers = []; 
+    let myOperators = [];
+    let newOperatorArray = [];
+
     const dispatch = useDispatch();
 
-    useEffect(() => {
 
-        switch ( operator ) {
-            case "+":
-                setResult( Number( input1 ) + Number(input2) );
-                break;
-            case "-":
-                setResult( Number( input1 ) - Number(input2) );
-                break;
-            case "*":
-                setResult( Number( input1 ) * Number(input2) );
-                break;
-            case "/":
-                setResult( Number( input1 ) / Number(input2) );
-                break;
-            default:
-                break;
-        }  
+    const breakUpInput = ( event ) => {
+        event.preventDefault();
+        myNumbers = userInput.split( /[*+/-]/gi );
 
-        setNewHistory(`${input1}${operator}${input2}=${result}`);
-    }, [input1, input2, operator, result]);
+        let operatorArray = userInput.split(/[0123456789]/);
+        for (let i=0; i<operatorArray.length; i++) {
+            if (operatorArray[i] !== "") {
+                newOperatorArray.push(operatorArray[i]);
+            }
+        }       
+        myOperators = newOperatorArray;
 
+        doMultiplication();
+        doDivision();
+        doAddition();
+        doSubtraction();
+        giveFinalResult();
+    }
 
-    const addEquation = ( event ) => {
+    const doMultiplication = ( ) => {
+
+        while (myOperators.includes("*")) {
+            for (let i=0; i<myOperators.length; i++) {
+            
+                if ( myOperators[i] === "*" ) {
+                    let tempResult = (myNumbers[i] * myNumbers[i+1]);
+                    myOperators.splice(i, 1);
+                    myNumbers.splice(i, 2, tempResult);
+                } 
+            }
+        }
+    }
+
+    const doDivision = ( ) => {
+
+        while (myOperators.includes("/")) {
+            for (let i=0; i<myOperators.length; i++) {
+            
+                if ( myOperators[i] === "/" ) {
+                    let tempResult = (myNumbers[i] / myNumbers[i+1]);
+                    myOperators.splice(i, 1);
+                    myNumbers.splice(i, 2, tempResult);
+                } 
+            }
+        }
+    }
+
+    const doAddition = ( ) => {
+
+        while (myOperators.includes("+")) {
+            for (let i=0; i<myOperators.length; i++) {
+            
+                if ( myOperators[i] === "+" ) {
+                    let tempResult = (Number(myNumbers[i]) + Number(myNumbers[i+1]));
+                    myOperators.splice(i, 1);
+                    myNumbers.splice(i, 2, tempResult);
+                } 
+            }
+        }
+    }
+
+    const doSubtraction = ( ) => {
+
+        while (myOperators.includes("-")) {
+            for (let i=0; i<myOperators.length; i++) {
+            
+                if ( myOperators[i] === "-" ) {
+                    let tempResult = (Number(myNumbers[i]) - Number(myNumbers[i+1]));
+                    myOperators.splice(i, 1);
+                    myNumbers.splice(i, 2, tempResult);
+                } 
+            }
+        }
+    }
+
+    const giveFinalResult = () => {
+        setResult( myNumbers );
+        addEquation();
         
-         event.preventDefault();
-         dispatch(addToHistory(newHistory));    
+    }
+
+    
+    const addEquation = ( ) => {
+        let newHistory = `${userInput}=${myNumbers}`;
+        dispatch(addToHistory(newHistory));    
+   }
+
+    const resetCalculator = () => {
+        setUserInput("0");
+        setResult(0);
     }
 
     return (
-        <>
-            <div id="displayBox">
-                <h2>Your current equation:</h2>
-                <p className="centerText">{newHistory}</p>
-            </div>
-            <form id="form" className="light-box">
-                <label htmlFor="input1">Enter a number:</label>
-                <input id="input1" type="number" value={ input1 } onChange={e => { setInput1( e.target.value )}}/>
-
-                <label htmlFor="operator">Choose an operator:</label>
-                <select id="operator" value={ operator } onChange={e => { setOperator( e.target.value )}}>
-                    <option value="+">+</option>
-                    <option value="-">-</option>
-                    <option value="*">*</option>
-                    <option value="/">/</option>
-                </select>
-
-                <label htmlFor="input2">Enter another number:</label>
-                <input id="input2" type="number" value={input2} onChange={e => { setInput2( e.target.value )}}/>
-
-                <input id="submitButton" className="light-button" type="submit" value="Calculate" onClick={ addEquation } />
+        <div id="displayBox3">
+            <form onSubmit={ breakUpInput }> 
+            <p className="centerText">OR</p>
+            
+                <label>Enter your equation on one line:</label>
+                <p id="result" className="centerText">{ result }</p>
+                    <input
+                        type="text" 
+                        name="userInput" 
+                        onChange={ event => { setUserInput( event.target.value ) } }
+                        value={ userInput }
+                        />
+                    <p className="centerText">* Calculator cannot handle brackets or negative numbers at this time</p>
+                <input id="calculateButton" type="submit" value="Calculate" /> 
+                <input id="resetButton" type="submit" value="Reset Calculator" onClick={ resetCalculator } /> 
             </form>
-
-        </>
+        </div>
     )
 }
 

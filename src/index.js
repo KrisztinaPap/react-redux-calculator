@@ -4,9 +4,10 @@ import './index.css';
 import './css/themes.css';
 import Title from './components/Title';
 //import Calculator from './components/CalculatorOneInput';
-import CalculatorOneInput from './components/CalculatorOneInput';
-import CalculatorTwoInput from './components/CalculatorTwoInput';
+import CalculatorOneInput from './components/CalculatorTwoInput';
+import CalculatorTwoInput from './components/CalculatorOneInput';
 import History from './components/History';
+import Display from './components/Display';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/Home';
@@ -33,6 +34,7 @@ ReactDOM.render(
         <Route path="/calculator-two-input">
           <CalculatorTwoInput />
         </Route>
+        <Route path="/display" component={Display} />
         <Route path="/history" component={History} />
       </Router>
     </>
