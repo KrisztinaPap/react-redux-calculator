@@ -1,7 +1,7 @@
-const showEquation = equationContent => {
+const showEquation = equation => {
     return {
         type: 'SHOW_EQUATION',
-        payload: equationContent
+        payload: equation
     };
 }
 
