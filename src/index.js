@@ -1,22 +1,32 @@
+// General imports
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './css/themes.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+
+// Component imports
 import Title from './components/Title';
-//import Calculator from './components/CalculatorOneInput';
 import CalculatorOneInput from './components/CalculatorTwoInput';
 import CalculatorTwoInput from './components/CalculatorOneInput';
 import History from './components/History';
 import Display from './components/Display';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/Home';
+
+// Redux store
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import addToHistoryReducer from './reducers/history.js';
+import historyReducer from './reducers/historyReducer.js';
+import equationReducer from './reducers/equationReducer.js';
+import { combineReducers } from 'redux';
+const rootReducer = combineReducers({
+  history: historyReducer,
+  equation: equationReducer
+})
+const store = createStore( rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
 
-
-const store = createStore( addToHistoryReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
 
 store.subscribe( () => console.log( store.getState() ) );
 console.log("store", store.getState());

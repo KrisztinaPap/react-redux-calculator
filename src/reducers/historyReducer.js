@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-const addToHistoryReducer = ( state=[], action ) => {
+const historyReducer = ( state=[], action ) => {
     switch ( action.type ) {
         case 'ADD_TO_HISTORY':
             const newHistory = {
@@ -17,4 +17,4 @@ const addToHistoryReducer = ( state=[], action ) => {
 
  
  
-export default addToHistoryReducer;
+export default historyReducer;
