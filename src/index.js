@@ -8,8 +8,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // Component imports
 import Title from './components/Title';
-import CalculatorOneInput from './components/CalculatorTwoInput';
-import CalculatorTwoInput from './components/CalculatorOneInput';
+import CalculatorOneInput from './components/CalculatorOneInput';
+import CalculatorTwoInput from './components/CalculatorTwoInput';
 import History from './components/History';
 import Display from './components/Display';
 import Nav from './components/Nav';
