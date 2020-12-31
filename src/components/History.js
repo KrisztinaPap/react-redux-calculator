@@ -11,9 +11,17 @@ function History () {
         <>
             <div id="displayBox2">
                 <h2>Current Session Calculation History:</h2>
-                <ul>
-                 
-                </ul>
+                <div>
+                { (tempArray === undefined)
+                ? 
+                    <ul>
+                       <li>Stuff</li>
+                    </ul> 
+                :
+                <p>There is no history, yet!</p>
+                }
+                </div>
+               
             </div>
      
         </>

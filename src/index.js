@@ -18,7 +18,7 @@ import addToHistoryReducer from './reducers/history.js';
 const store = createStore( addToHistoryReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
 
 store.subscribe( () => console.log( store.getState() ) );
-console.log(store.getState());
+console.log("store", store.getState());
 
 ReactDOM.render(
   <Provider store={ store }>
