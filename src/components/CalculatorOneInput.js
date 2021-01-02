@@ -107,7 +107,9 @@ function CalculatorOneInput ()
             <form onSubmit={ breakUpInput }>             
                 
                 <p id="result" className="centerText">
-                    { userInput }={ result }
+                    { userInput }
+                    { result ? <span>={ result }</span> 
+                    : <span></span>}
                 </p>
                 <label>Enter your equation on one line:</label>
                     <input
