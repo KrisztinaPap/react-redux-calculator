@@ -75,10 +75,9 @@ function CalculatorOneInput ()
     }
 
     const doSubtraction = ( ) => {
-
         while (myOperators.includes("-")) {
             for (let i=0; i<myOperators.length; i++) {
-            
+       
                 if ( myOperators[i] === "-" ) {
                     let tempResult = (Number(myNumbers[i]) - Number(myNumbers[i+1]));
                     myOperators.splice(i, 1);
@@ -90,11 +89,9 @@ function CalculatorOneInput ()
 
     const giveFinalResult = () => {
         setResult( myNumbers );
-        addEquation();
-        
+        addEquation();    
     }
-
-    
+ 
     const addEquation = ( ) => {
         let newHistory = `${userInput}=${myNumbers}`;
         dispatch(addToHistory(newHistory));    
@@ -107,11 +104,12 @@ function CalculatorOneInput ()
 
     return (
         <div id="displayBox3">
-            <form onSubmit={ breakUpInput }> 
-            <p className="centerText">OR</p>
-            
+            <form onSubmit={ breakUpInput }>             
+                
+                <p id="result" className="centerText">
+                    { userInput }={ result }
+                </p>
                 <label>Enter your equation on one line:</label>
-                <p id="result" className="centerText">{ result }</p>
                     <input
                         type="text" 
                         name="userInput" 
