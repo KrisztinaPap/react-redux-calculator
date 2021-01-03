@@ -52,24 +52,16 @@ select {
 	box-shadow: 10px 10px 5px var(--color5);
 }
 
-#submitButton,
-#calculateButton,
-#resetButton,
-#switchThemeButton {
+button {
 	padding: 6px 16px;
 	border: 2px solid var(--color5);
 	background-color: var(--color3);
 	border-radius: 10px;
+	cursor: pointer;
 }
 
-#submitButton:hover,
-#submitButton:focus,
-#calculateButton:hover,
-#calculateButton:focus,
-#resetButton:hover,
-#resetButton:focus,
-#switchThemeButton:hover,
-#switchThemeButton:focus {
+button:hover,
+button:focus {
 	cursor: pointer;
 	box-shadow: 10px 10px 5px var(--color5);
 }

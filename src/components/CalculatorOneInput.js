@@ -114,7 +114,7 @@ function CalculatorOneInput ()
                         value={ userInput }
                         />
                     <p className="centerText">* Calculator cannot handle brackets or negative numbers at this time</p>
-                <input id="calculateButton" type="submit" value="Calculate and Add to History" /> 
+                <button id="calculateButton" type="submit" value="Calculate and Add to History">Calculate and Add to History</button> 
             </form>
         </div>
     )

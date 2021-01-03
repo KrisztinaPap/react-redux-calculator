@@ -69,9 +69,9 @@ const CalculatorTwoInput = ( props ) => {
 
                 <p className="centerText">{newHistory}</p>
                
-                <input id="resetButton" type="submit" value="Reset Calculator" onClick={ resetCalculator } /> 
+                <button id="resetButton" type="submit" value="Reset Calculator" onClick={ resetCalculator }>Reset Calculator</button>
 
-                <input id="submitButton" className="light-button" type="submit" value="Add Equation to History" onClick={ addEquation } />
+                <button id="submitButton" className="light-button" type="submit" value="Add Equation to History" onClick={ addEquation }>Add Equation to History</button> 
             </form>
 
         </>
