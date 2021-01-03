@@ -98,7 +98,7 @@ function CalculatorOneInput ()
    }
 
     return (
-        <div id="displayBox3">
+        <div className="display-box">
             <form onSubmit={ breakUpInput }>             
                 
                 <p id="result" className="centerText">

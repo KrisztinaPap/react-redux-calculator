@@ -7,7 +7,7 @@ function History() {
 
     return (
         <>
-            <div id="displayBox2">
+            <div className="display-box">
                 <h2>Current Session Calculation History:</h2>
                 <div>
                     { history.length > 0

@@ -9,7 +9,7 @@ const CalculatorButtons = () => {
 
     return (
         <>
-            <form className="light-box">
+            <form className="display-box">
                <div id="buttons-container">
                     { 
                         buttonLabels.map( (button) => 
