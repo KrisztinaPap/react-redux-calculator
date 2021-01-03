@@ -97,11 +97,6 @@ function CalculatorOneInput ()
         dispatch(addToHistory(newHistory));    
    }
 
-    const resetCalculator = () => {
-        setUserInput("0");
-        setResult(0);
-    }
-
     return (
         <div id="displayBox3">
             <form onSubmit={ breakUpInput }>             
@@ -119,8 +114,7 @@ function CalculatorOneInput ()
                         value={ userInput }
                         />
                     <p className="centerText">* Calculator cannot handle brackets or negative numbers at this time</p>
-                <input id="calculateButton" type="submit" value="Calculate" /> 
-                <input id="resetButton" type="submit" value="Reset Calculator" onClick={ resetCalculator } /> 
+                <input id="calculateButton" type="submit" value="Calculate and Add to History" /> 
             </form>
         </div>
     )

@@ -41,6 +41,12 @@ const CalculatorTwoInput = ( props ) => {
          dispatch(addToHistory(newHistory));    
     }
 
+    const resetCalculator = () => {
+        setInput1("0");
+        setInput2("0");
+        setResult(0);
+    }
+
     return (
         <>
             <form id="form" className="light-box">
@@ -63,7 +69,9 @@ const CalculatorTwoInput = ( props ) => {
 
                 <p className="centerText">{newHistory}</p>
                
-                <input id="submitButton" className="light-button" type="submit" value="Add to History" onClick={ addEquation } />
+                <input id="resetButton" type="submit" value="Reset Calculator" onClick={ resetCalculator } /> 
+
+                <input id="submitButton" className="light-button" type="submit" value="Add Equation to History" onClick={ addEquation } />
             </form>
 
         </>
