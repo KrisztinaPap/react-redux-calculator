@@ -98,25 +98,23 @@ function CalculatorOneInput ()
    }
 
     return (
-        <div className="display-box">
-            <form onSubmit={ breakUpInput }>             
-                
-                <p id="result" className="centerText">
-                    { userInput }
-                    { result ? <span>={ result }</span> 
-                    : <span></span>}
-                </p>
-                <label>Enter your equation on one line:</label>
-                    <input
-                        type="text" 
-                        name="userInput" 
-                        onChange={ event => { setUserInput( event.target.value ) } }
-                        value={ userInput }
-                        />
-                    <p className="centerText">* Calculator cannot handle brackets or negative numbers at this time</p>
-                <button id="calculateButton" type="submit" value="Calculate and Add to History">Calculate and Add to History</button> 
-            </form>
-        </div>
+        <form onSubmit={ breakUpInput } className="display-box">             
+            
+            <p id="result" className="centerText">
+                { userInput }
+                { result ? <span>={ result }</span> 
+                : <span></span>}
+            </p>
+            <label>Enter your equation on one line:</label>
+                <input
+                    type="text" 
+                    name="userInput" 
+                    onChange={ event => { setUserInput( event.target.value ) } }
+                    value={ userInput }
+                    />
+                <p className="centerText">* Calculator cannot handle brackets or negative numbers at this time</p>
+            <button id="calculateButton" type="submit" value="Calculate and Add to History">Calculate and Add to History</button> 
+        </form>
     )
 }
 

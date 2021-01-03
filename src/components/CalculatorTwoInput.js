@@ -49,7 +49,7 @@ const CalculatorTwoInput = ( props ) => {
 
     return (
         <>
-            <form id="form" className="light-box">
+            <form id="form" className="display-box">
                 <label htmlFor="input1">
                     <input id="input1" type="number" value={ input1 } onChange={e => { setInput1( e.target.value )}}/>
                 </label>

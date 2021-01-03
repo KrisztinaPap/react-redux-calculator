@@ -38,15 +38,9 @@ ReactDOM.render(
       <Router>
         <Nav />
         <Route path="/" component={Home} exact />
-        <Route path="/calculator-one-input">
-          <CalculatorOneInput />
-        </Route>
-        <Route path="/calculator-two-input">
-          <CalculatorTwoInput />
-        </Route>
-        <Route path="/calculator-buttons">
-          <CalculatorButtons />
-        </Route>
+        <Route path="/calculator-one-input" component={CalculatorOneInput} />
+        <Route path="/calculator-two-input" component={CalculatorTwoInput} />
+        <Route path="/calculator-buttons" component={CalculatorButtons} />
         <Route path="/history" component={History} />
       </Router>
     </>
