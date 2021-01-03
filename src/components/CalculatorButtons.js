@@ -10,14 +10,15 @@ const CalculatorButtons = () => {
     return (
         <>
             <form className="display-box">
-               <div id="buttons-container">
+                <div className="calculator-display">DISPLAY</div>
+                <div id="buttons-container">
                     { 
                         buttonLabels.map( (button) => 
                             <button className="calculator-button">
                                 {button}
                             </button>)
                     }
-               </div>
+                </div>
             </form>
 
         </>
