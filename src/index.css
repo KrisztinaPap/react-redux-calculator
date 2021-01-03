@@ -64,3 +64,18 @@ button:focus {
 	cursor: pointer;
 	box-shadow: 10px 10px 5px var(--color5);
 }
+
+#buttons-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.calculator-button {
+	height: 10vh;
+	width: 22%;
+	font-size: larger;
+	margin: 5px;
+}

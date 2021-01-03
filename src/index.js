@@ -1,19 +1,20 @@
 // General imports
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
 import './css/themes.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 // Component imports
 import Title from './components/Title';
+import Nav from './components/Nav';
+import Home from './components/Home';
 import CalculatorOneInput from './components/CalculatorOneInput';
 import CalculatorTwoInput from './components/CalculatorTwoInput';
 import CalculatorButtons from './components/CalculatorButtons';
 import History from './components/History';
-import Nav from './components/Nav';
-import Home from './components/Home';
+
 
 // Redux store
 import { Provider } from 'react-redux';
