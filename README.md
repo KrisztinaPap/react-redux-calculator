@@ -1,16 +1,21 @@
 # Title
+
 Krisztina's Simple React-Redux Calculator
 
 ## Purpose
+
 To practice using create-react-app, React, and Redux
 
 ## Author
+
 Krisztina Pap
 
 ## Last edit
-September 16, 2020
+
+January 2, 2021
 
 ## Resources
+
 - [Color scheme from colors.co](https://coolors.co/bcb6ff-b8e1ff-a9fff7-94fbab-82aba1)
 - [npm: UUID](https://www.npmjs.com/package/uuid)
 - [Web Dev Simplified](https://youtu.be/0ZJgIjIuY7U)
@@ -18,13 +23,8 @@ September 16, 2020
 - Thank-you to Tammy Valgardson for her help figuring out combining reducers!
 
 ## Trello project board
+
 https://trello.com/b/XUOo422e/react-redux-calculator
-
-
-
-
-
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
