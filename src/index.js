@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Title from './components/Title';
 import CalculatorOneInput from './components/CalculatorOneInput';
 import CalculatorTwoInput from './components/CalculatorTwoInput';
+import CalculatorButtons from './components/CalculatorButtons';
 import History from './components/History';
 import Nav from './components/Nav';
 import Home from './components/Home';
@@ -42,6 +43,9 @@ ReactDOM.render(
         </Route>
         <Route path="/calculator-two-input">
           <CalculatorTwoInput />
+        </Route>
+        <Route path="/calculator-buttons">
+          <CalculatorButtons />
         </Route>
         <Route path="/history" component={History} />
       </Router>

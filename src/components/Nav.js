@@ -16,6 +16,9 @@ function Nav() {
                     <Link to="/calculator-two-input">Two-input Calculator</Link>
                 </li>
                 <li>
+                    <Link to="/calculator-buttons">Calculator with Buttons</Link>
+                </li>
+                <li>
                     <Link to="/History">History</Link>
                 </li>
             </ul>
