@@ -67,7 +67,7 @@ const CalculatorTwoInput = ( props ) => {
                     <input id="input2" type="number" value={input2} onChange={e => { setInput2( e.target.value )}}/>
                 </label>
 
-                <p className="centerText">{newHistory}</p>
+                <p className="display-screen">{newHistory}</p>
                
                 <button id="resetButton" type="submit" value="Reset Calculator" onClick={ resetCalculator }>Reset Calculator</button>
 
