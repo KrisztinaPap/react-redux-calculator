@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import History from './History';
 import { useDispatch } from 'react-redux';
 import { addToHistory } from '../actions/history';
 
@@ -79,9 +80,8 @@ const CalculatorTwoInput = ( props ) => {
                     <button id="resetButton" type="submit" value="Reset Calculator" onClick={ resetCalculator }>Reset Calculator</button>
                     <button id="submitButton" className="light-button" type="submit" value="Add Equation to History" onClick={ addEquation }>Add Equation to History</button> 
                 </div>
-               
             </form>
-
+            <History />
         </>
     )
 }

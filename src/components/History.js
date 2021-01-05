@@ -7,16 +7,14 @@ function History() {
 
     return (
         <>
+            <h2>Current Session History</h2>
             <div className="display-box">
-                <h2>Current Session Calculation History:</h2>
-                <div>
+                <ol>
                     { history.length > 0
-                        ? history.map((equation, id) => <li key={equation.id}>{equation.equation}</li>) 
-                        : <p>No history, yet!</p>
-                    }
-                    
-                </div>
-               
+                        ? history.map((equation, id) => <li key={equation.id}> "{equation.equation}"</li>) 
+                        : <p>No calculation session history to display, yet... Try one of the calculators!</p>
+                    }  
+                </ol>
             </div>
      
         </>
