@@ -49,29 +49,37 @@ const CalculatorTwoInput = ( props ) => {
 
     return (
         <>
+            <h2>Two-input Calculator</h2>
             <form id="form" className="display-box">
-                <label htmlFor="input1">
-                    <input id="input1" type="number" value={ input1 } onChange={e => { setInput1( e.target.value )}}/>
-                </label>
-
-                <label htmlFor="operator">
-                    <select id="operator" value={ operator } onChange={e => { setOperator( e.target.value )}}>
-                        <option value="+">+</option>
-                        <option value="-">-</option>
-                        <option value="*">*</option>
-                        <option value="/">/</option>
-                    </select>
-                </label>
-                
-                <label htmlFor="input2">
-                    <input id="input2" type="number" value={input2} onChange={e => { setInput2( e.target.value )}}/>
-                </label>
-
                 <p className="display-screen">{newHistory}</p>
+                <div className="input-container">
+                    <div>
+                        <label htmlFor="input1">
+                            <input id="input1" type="number" value={ input1 } onChange={e => { setInput1( e.target.value )}}/>
+                        </label>
+                    </div>
+                    <div>
+                        <label htmlFor="operator">
+                            <select id="operator" value={ operator } onChange={e => { setOperator( e.target.value )}}>
+                                <option value="+">+</option>
+                                <option value="-">-</option>
+                                <option value="*">*</option>
+                                <option value="/">/</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div>
+                        <label htmlFor="input2">
+                            <input id="input2" type="number" value={input2} onChange={e => { setInput2( e.target.value )}}/>
+                        </label>
+                    </div>
+                </div>
                
-                <button id="resetButton" type="submit" value="Reset Calculator" onClick={ resetCalculator }>Reset Calculator</button>
-
-                <button id="submitButton" className="light-button" type="submit" value="Add Equation to History" onClick={ addEquation }>Add Equation to History</button> 
+                <div className="buttons-container">
+                    <button id="resetButton" type="submit" value="Reset Calculator" onClick={ resetCalculator }>Reset Calculator</button>
+                    <button id="submitButton" className="light-button" type="submit" value="Add Equation to History" onClick={ addEquation }>Add Equation to History</button> 
+                </div>
+               
             </form>
 
         </>

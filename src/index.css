@@ -30,22 +30,28 @@ h1 {
 }
 
 h2 {
+	margin-top: 3rem;
 	padding-bottom: 1rem;
 }
 
+.input-container {
+	display: flex;
+	flex-direction: row;
+	margin: 3rem 0;
+}
+
 input {
-	display: block;
-	width: 40%;
-	margin: 0.4rem auto;
+	width: 100px;
 	font-size: 2rem;
 }
 
-label {
-	
+select {
+	font-size: 2rem;
+	padding: 0 0.4rem;
 }
 
-select {
-	margin: 0 auto;
+label {
+	margin: 1rem;
 	font-size: 2rem;
 }
 
@@ -55,8 +61,9 @@ select {
 	min-height: 4rem;
 	font-size: 3rem;
 	font-family: "Audiowide", cursive;
-	border: var(--color6) 2px solid;
+	border: var(--color6) 4px solid;
 	background-color: var(--color8);
+	box-shadow: 10px 10px 5px var(--color6);
 }
 
 .display-box {
@@ -73,6 +80,7 @@ select {
 
 button {
 	padding: 6px 16px;
+	margin: 1rem;
 	border: 2px solid var(--color5);
 	background-color: var(--color3);
 	border-radius: 10px;
@@ -85,7 +93,7 @@ button:focus {
 	box-shadow: 10px 10px 5px var(--color5);
 }
 
-#buttons-container {
+.buttons-container {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
