@@ -102,7 +102,7 @@ function CalculatorOneInput ()
         <>
             <form onSubmit={ breakUpInput } className="display-box">             
                 
-                <p id="result" className="centerText">
+                <p id="result" className="display-screen">
                     { userInput }
                     { result ? <span>={ result }</span> 
                     : <span></span>}
@@ -111,6 +111,7 @@ function CalculatorOneInput ()
                     <input
                         type="text" 
                         name="userInput" 
+                        className="input-large" 
                         onChange={ event => { setUserInput( event.target.value ) } }
                         value={ userInput }
                         />

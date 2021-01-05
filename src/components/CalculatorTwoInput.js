@@ -56,7 +56,7 @@ const CalculatorTwoInput = ( props ) => {
                 <div className="input-container">
                     <div>
                         <label htmlFor="input1">
-                            <input id="input1" type="number" value={ input1 } onChange={e => { setInput1( e.target.value )}}/>
+                            <input className="input-small" id="input1" type="number" value={ input1 } onChange={e => { setInput1( e.target.value )}}/>
                         </label>
                     </div>
                     <div>
@@ -71,7 +71,7 @@ const CalculatorTwoInput = ( props ) => {
                     </div>
                     <div>
                         <label htmlFor="input2">
-                            <input id="input2" type="number" value={input2} onChange={e => { setInput2( e.target.value )}}/>
+                            <input className="input-small" id="input2" type="number" value={input2} onChange={e => { setInput2( e.target.value )}}/>
                         </label>
                     </div>
                 </div>
