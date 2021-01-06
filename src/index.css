@@ -147,6 +147,15 @@ button:focus {
     flex-direction: column;
 }
 
+#nav ul {
+	list-style-type: none;
+}
+
+#nav li {
+	font-size: 1rem;
+	margin-bottom: 0.6rem;
+}
+
 #nav a {
     text-decoration: none;
     color: var(--color6);
@@ -161,10 +170,6 @@ button:focus {
     color: var(--color3);
 }
 
-.nav-link {
-	display: none;
-}
-
 .nav-button {
 	display: inline;
 }
@@ -176,27 +181,24 @@ button:focus {
 
 /* ----------- Media queries -------------- */
 @media screen and (min-width: 400px) {
-	.nav-button {
-		display: none;
-	}
 
 	.nav-link {
 		display: block;
     }
     
-    #nav {
-        display: inline-flex;
-    }
+
 }
 
 @media screen and ( min-width: 800px) {
-    p {
+
+	p {
         text-align: justify;
     }
 }
 
 @media screen and ( min-width: 1024px) {
-    #nav {
+	
+	#nav {
     
         flex-direction: row;
         flex-wrap: nowrap;
@@ -207,7 +209,7 @@ button:focus {
         margin-left: 0;
     }
     
-    #nav li {
+    .nav-link {
         display: inline;  
     }
 }
