@@ -1,5 +1,6 @@
 /* Google Fonts import */
 @import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 /* Color schemes from colors.co */
 :root {
@@ -25,19 +26,34 @@
 	text-align: center;
 }
 
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+p, li {
+    font-family: 'Open Sans', sans-serif;
+ 
+}
+
+p {
+    padding: 0.4rem 0.2rem;
+}
+
+ul, li {
+    text-align: left;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
 
 h1 {
 	padding: 1rem 0;
 }
 
-h2 {
+h2, h3 {
 	margin-top: 3rem;
 	padding-bottom: 1rem;
-}
-
-.hamburger-menu {
-	font-size: 2rem;
-	margin: 1rem;
 }
 
 .input-container {
@@ -123,3 +139,76 @@ button:focus {
 	font-size: larger;
 	margin: 5px;
 }
+
+/* --------------- Navigation ----------------*/
+
+#nav {
+    display: flex;
+    flex-direction: column;
+}
+
+#nav a {
+    text-decoration: none;
+    color: var(--color6);
+}
+
+#nav li a:hover,
+#nav li a:focus {
+    color: var(--color1);
+}
+
+#nav li a:active {
+    color: var(--color3);
+}
+
+.nav-link {
+	display: none;
+}
+
+.nav-button {
+	display: inline;
+}
+
+#hamburger-menu {
+	font-size: 2rem;
+	margin: 1rem 0;
+}
+
+/* ----------- Media queries -------------- */
+@media screen and (min-width: 400px) {
+	.nav-button {
+		display: none;
+	}
+
+	.nav-link {
+		display: block;
+    }
+    
+    #nav {
+        display: inline-flex;
+    }
+}
+
+@media screen and ( min-width: 800px) {
+    p {
+        text-align: justify;
+    }
+}
+
+@media screen and ( min-width: 1024px) {
+    #nav {
+    
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+
+    #nav ul {
+        margin-left: 0;
+    }
+    
+    #nav li {
+        display: inline;  
+    }
+}
+
