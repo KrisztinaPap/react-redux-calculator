@@ -9,12 +9,10 @@ function Nav() {
 
     const menuToggle = () => {
         setIsOpen(!isOpen);
-        console.log(isOpen);
     };
 
-
     return (
-        <nav id="nav">
+        <nav id="nav" className="container">
        
             <ul id="nav-ul">
                 <li className="nav-button">

@@ -179,38 +179,38 @@ button:focus {
 	margin: 1rem 0;
 }
 
+#hamburger-menu:hover,
+#hamburger-menu:focus {
+	box-shadow: 10px 10px 5px var(--color5);
+	animation: rotateMenuButton 1s linear;
+} 
+
+@keyframes rotateMenuButton{ 
+	0%{ 
+		transform: rotate(0deg); 
+		transition-duration: 2s;
+	} 
+	50%{ 
+		transform: rotate(180deg); 
+		transition-duration: 2s;
+	} 
+	100%{ 
+		transform: rotate(360deg); 
+		transition-duration: 2s;
+	} 
+} 
+
 /* ----------- Media queries -------------- */
 @media screen and (min-width: 400px) {
-
 	.nav-link {
 		display: block;
     }
-    
-
 }
 
 @media screen and ( min-width: 800px) {
-
 	p {
         text-align: justify;
     }
 }
 
-@media screen and ( min-width: 1024px) {
-	
-	#nav {
-    
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-around;
-    }
-
-    #nav ul {
-        margin-left: 0;
-    }
-    
-    .nav-link {
-        display: inline;  
-    }
-}
 
