@@ -29,17 +29,29 @@ const CalculatorButtons = () => {
         { "id" : '=', "value" : '=' }
     ];
 
+    const [ userInput, setUserInput ] = useState("");
+    const [ result, setResult ] = useState(0);
+
     const calculatorButtons = document.querySelectorAll('.calculator-button');
+    
+    const handleButtonClick = (e) => {
+        e.preventDefault();
+        console.log(e.target.value);
+    };
 
     return (
         <>
             <form className="display-box">
-                <div className="calculator-display">DISPLAY</div>
+                <div className="calculator-display">DISPLAY {userInput}</div>
                 <div id="buttons-container">
                     { 
                         buttonLabels.map( (button) => 
-                            <button className="calculator-button">
-                                {button.id}
+                            <button 
+                                key={button.id} 
+                                value={button.value}
+                                className="calculator-button"
+                                onClick={ (e) => handleButtonClick(e) }>
+                                    {button.value}
                             </button>)
                     }
                 </div>
