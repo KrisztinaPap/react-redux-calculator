@@ -100,7 +100,7 @@ function CalculatorOneInput ()
 
     return (
         <>
-            <form onSubmit={ breakUpInput } className="display-box">             
+            <form onSubmit={ breakUpInput } className="display-box" method="post">             
                 
                 <p id="result" className="display-screen">
                     { userInput }

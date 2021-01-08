@@ -8,26 +8,25 @@ import History from './History';
 const CalculatorButtons = () => {
 
     const buttonLabels = [
-        { "id" : 'C', "value" : 'C' },
-        { "id" : '()', "value" : '()' },
-        { "id" : '%', "value" : '%' },
-        { "id" : '/', "value" : '/' },
-        { "id" : '7', "value" : '7' },
-        { "id" : '8', "value" : '8' },
-        { "id" : '9', "value" : '9' },
-        { "id" : '*', "value" : '*' },
-        { "id" : '4', "value" : '4' },
-        { "id" : '5', "value" : '5' },
-        { "id" : '6', "value" : '6' },
-        { "id" : '-', "value" : '-' },
-        { "id" : '1', "value" : '1' },
-        { "id" : '2', "value" : '2' },
-        { "id" : '3', "value" : '3' },
-        { "id" : '+', "value" : '+' },
-        { "id" : '+/-', "value" : '+/-' },
-        { "id" : '0', "value" : '0' },
-        { "id" : '.', "value" : '.' },
-        { "id" : '=', "value" : '=' }
+        { "id" : 'C', "value" : 'C', "type": "button" },
+        { "id" : '()', "value" : '()', "type": "button" },
+        { "id" : '%', "value" : '%', "type": "button" },
+        { "id" : '/', "value" : '/', "type": "button" },
+        { "id" : '7', "value" : '7', "type": "button" },
+        { "id" : '8', "value" : '8', "type": "button" },
+        { "id" : '9', "value" : '9', "type": "button" },
+        { "id" : '*', "value" : '*', "type": "button" },
+        { "id" : '4', "value" : '4', "type": "button" },
+        { "id" : '5', "value" : '5', "type": "button" },
+        { "id" : '6', "value" : '6', "type": "button" },
+        { "id" : '-', "value" : '-', "type": "button" },
+        { "id" : '1', "value" : '1', "type": "button" },
+        { "id" : '2', "value" : '2', "type": "button" },
+        { "id" : '3', "value" : '3', "type": "button" },
+        { "id" : '+', "value" : '+', "type": "button" },
+        { "id" : '+/-', "value" : '+/-', "type": "button" },
+        { "id" : '0', "value" : '0', "type": "button" },
+        { "id" : '.', "value" : '.', "type": "button" }
     ];
 
     const [ userInput, setUserInput ] = useState("");
@@ -46,17 +45,26 @@ const CalculatorButtons = () => {
         let newUserInput = e.target.value;
         console.log("new user input: ", newUserInput);
 
-        // Add newUserInput to a temporary equation string 
-        let tempUserEquation = userInput.concat(newUserInput);
-        console.log("temp user input string with new input: ", tempUserEquation);
+        //Check if buttons clicked was '=' as that should submit form
+        if(newUserInput === '=')
+        {
+            console.log("pressed equal!");
+            document.getElementById('buttonForm').submit();
+        } else 
+        {
+            // Add newUserInput to a temporary equation string 
+            let tempUserEquation = userInput.concat(newUserInput);
+            console.log("temp user input string with new input: ", tempUserEquation);
 
-        // Update userInput state to match temporary equation
-        setUserInput(tempUserEquation);        
+            // Update userInput state to match temporary equation
+            setUserInput(tempUserEquation);        
+        }
     };
 
-    const breakUpInput = ( event ) => {
-        event.preventDefault();
+    const breakUpInput = (e) => {
+        e.preventDefault();
         myNumbers = userInput.split( /[*+/-]/gi );
+        console.log("my numbers: ", myNumbers);
 
         let operatorArray = userInput.split(/[0123456789]/);
         for (let i=0; i<operatorArray.length; i++) {
@@ -65,12 +73,13 @@ const CalculatorButtons = () => {
             }
         }       
         myOperators = newOperatorArray;
+        console.log("my operators: ", myOperators);
 
-        doMultiplication();
+     /*    doMultiplication();
         doDivision();
         doAddition();
         doSubtraction();
-        giveFinalResult();
+        giveFinalResult(); */
     }
 
     const doMultiplication = ( ) => {
@@ -140,7 +149,7 @@ const CalculatorButtons = () => {
 
     return (
         <>
-            <form onSubmit={ breakUpInput } className="display-box">
+            <form onSubmit={ breakUpInput } className="display-box" method="post">
 
                 <div className="calculator-display">{result}</div>
                 <div id="buttons-container">
@@ -149,11 +158,13 @@ const CalculatorButtons = () => {
                             <button 
                                 key={button.id} 
                                 value={button.value}
+                                type={button.type}
                                 className="calculator-button"
                                 onClick={ (e) => handleButtonClick(e) }>
                                     {button.value}
                             </button>)
                     }
+                    <button type="submit" className="calculator-button" value="=">=</button>
                 </div>
             </form>
             <History />
