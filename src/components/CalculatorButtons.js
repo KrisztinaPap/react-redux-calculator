@@ -36,7 +36,16 @@ const CalculatorButtons = () => {
     
     const handleButtonClick = (e) => {
         e.preventDefault();
-        console.log(e.target.value);
+        // Capture the button value as newUserInput
+        let newUserInput = e.target.value;
+        console.log("new user input: ", newUserInput);
+
+        // Add newUserInput to a temporary equation string 
+        let tempUserEquation = userInput.concat(newUserInput);
+        console.log("temp user input string with new input: ", tempUserEquation);
+
+        // Update userInput state to match temporary equation
+        setUserInput(tempUserEquation);        
     };
 
     return (
