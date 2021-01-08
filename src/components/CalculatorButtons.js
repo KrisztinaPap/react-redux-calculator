@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToHistory } from '../actions/history';
+import History from './History';
 
 
 
@@ -31,11 +32,16 @@ const CalculatorButtons = () => {
 
     const [ userInput, setUserInput ] = useState("");
     const [ result, setResult ] = useState(0);
+    let myNumbers = []; 
+    let myOperators = [];
+    let newOperatorArray = [];
 
-    const calculatorButtons = document.querySelectorAll('.calculator-button');
+    const dispatch = useDispatch();
+
     
     const handleButtonClick = (e) => {
         e.preventDefault();
+
         // Capture the button value as newUserInput
         let newUserInput = e.target.value;
         console.log("new user input: ", newUserInput);
@@ -48,10 +54,95 @@ const CalculatorButtons = () => {
         setUserInput(tempUserEquation);        
     };
 
+    const breakUpInput = ( event ) => {
+        event.preventDefault();
+        myNumbers = userInput.split( /[*+/-]/gi );
+
+        let operatorArray = userInput.split(/[0123456789]/);
+        for (let i=0; i<operatorArray.length; i++) {
+            if (operatorArray[i] !== "") {
+                newOperatorArray.push(operatorArray[i]);
+            }
+        }       
+        myOperators = newOperatorArray;
+
+        doMultiplication();
+        doDivision();
+        doAddition();
+        doSubtraction();
+        giveFinalResult();
+    }
+
+    const doMultiplication = ( ) => {
+
+        while (myOperators.includes("*")) {
+            for (let i=0; i<myOperators.length; i++) {
+            
+                if ( myOperators[i] === "*" ) {
+                    let tempResult = (myNumbers[i] * myNumbers[i+1]);
+                    myOperators.splice(i, 1);
+                    myNumbers.splice(i, 2, tempResult);
+                } 
+            }
+        }
+    }
+
+    const doDivision = ( ) => {
+
+        while (myOperators.includes("/")) {
+            for (let i=0; i<myOperators.length; i++) {
+            
+                if ( myOperators[i] === "/" ) {
+                    let tempResult = (myNumbers[i] / myNumbers[i+1]);
+                    myOperators.splice(i, 1);
+                    myNumbers.splice(i, 2, tempResult);
+                } 
+            }
+        }
+    }
+
+    const doAddition = ( ) => {
+
+        while (myOperators.includes("+")) {
+            for (let i=0; i<myOperators.length; i++) {
+            
+                if ( myOperators[i] === "+" ) {
+                    let tempResult = (Number(myNumbers[i]) + Number(myNumbers[i+1]));
+                    myOperators.splice(i, 1);
+                    myNumbers.splice(i, 2, tempResult);
+                } 
+            }
+        }
+    }
+
+    const doSubtraction = ( ) => {
+        while (myOperators.includes("-")) {
+            for (let i=0; i<myOperators.length; i++) {
+       
+                if ( myOperators[i] === "-" ) {
+                    let tempResult = (Number(myNumbers[i]) - Number(myNumbers[i+1]));
+                    myOperators.splice(i, 1);
+                    myNumbers.splice(i, 2, tempResult);
+                } 
+            }
+        }
+    }
+
+    const giveFinalResult = () => {
+        setResult( myNumbers );
+        addEquation();    
+    }
+ 
+    const addEquation = ( ) => {
+        let newHistory = `${userInput}=${myNumbers}`;
+        dispatch(addToHistory(newHistory));    
+   }
+
     return (
         <>
-            <form className="display-box">
-                <div className="calculator-display">DISPLAY {userInput}</div>
+            <form onSubmit={ breakUpInput } className="display-box">
+
+                <div className="calculator-display">{result}</div>
                 <div id="buttons-container">
                     { 
                         buttonLabels.map( (button) => 
@@ -65,7 +156,7 @@ const CalculatorButtons = () => {
                     }
                 </div>
             </form>
-
+            <History />
         </>
     )
 }
