@@ -45,7 +45,7 @@ function CalculatorOneInput ()
                     myNumbers.splice(i, 2, String(tempResult));
                     console.log(myNumbers);
                 } 
-                else if ( myOperators[i] === "/" ) {
+                if ( myOperators[i] === "/" ) {
                     console.log("before:", myOperators, myNumbers);
                     let tempResult = Number((myNumbers[i]) / Number(myNumbers[i+1]));
                     console.log("tempResult", tempResult);
@@ -56,6 +56,7 @@ function CalculatorOneInput ()
                 }
             }                     
             if (myOperators.includes("+" || "-")) {
+                console.log("Still stuff to do!");
                 for (let i=0; i<myOperators.length; i++) {
                 
                     if ( myOperators[i] === "+" ) {
@@ -67,7 +68,7 @@ function CalculatorOneInput ()
                         myNumbers.splice(i, 2, String(tempResult));
                         console.log(myNumbers);
                     } 
-                    else if ( myOperators[i] === "-" ) {
+                    if ( myOperators[i] === "-" ) {
                         console.log("before:", myOperators, myNumbers);
                         let tempResult = (Number(myNumbers[i]) - Number(myNumbers[i+1]));
                         console.log("tempResult", tempResult);

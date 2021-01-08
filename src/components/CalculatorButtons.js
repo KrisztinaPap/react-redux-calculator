@@ -55,7 +55,8 @@ const CalculatorButtons = () => {
         console.log("temp user input string with new input: ", tempUserEquation);
 
         // Update userInput state to match temporary equation
-        setUserInput(tempUserEquation);        
+        setUserInput(tempUserEquation);  
+        
     };
 
     const breakUpInput = () => {
@@ -84,7 +85,7 @@ const CalculatorButtons = () => {
                     myNumbers.splice(i, 2, String(tempResult));
                     console.log(myNumbers);
                 } 
-                else if ( myOperators[i] === "/" ) {
+                if ( myOperators[i] === "/" ) {
                     console.log("before:", myOperators, myNumbers);
                     let tempResult = Number((myNumbers[i]) / Number(myNumbers[i+1]));
                     console.log("tempResult", tempResult);
@@ -106,7 +107,7 @@ const CalculatorButtons = () => {
                         myNumbers.splice(i, 2, String(tempResult));
                         console.log(myNumbers);
                     } 
-                    else if ( myOperators[i] === "-" ) {
+                    if ( myOperators[i] === "-" ) {
                         console.log("before:", myOperators, myNumbers);
                         let tempResult = (Number(myNumbers[i]) - Number(myNumbers[i+1]));
                         console.log("tempResult", tempResult);
