@@ -48,11 +48,9 @@ const CalculatorButtons = () => {
 
         // Capture the button value as newUserInput
         let newUserInput = e.target.value;
-        console.log("new user input: ", newUserInput);
 
         // Add newUserInput to a temporary equation string 
         let tempUserEquation = userInput.concat(newUserInput);
-        console.log("temp user input string with new input: ", tempUserEquation);
 
         // Update userInput state to match temporary equation
         setUserInput(tempUserEquation);  
@@ -77,44 +75,28 @@ const CalculatorButtons = () => {
             for (let i=0; i<myOperators.length; i++) {
             
                 if ( myOperators[i] === "*" ) {
-                    console.log("before:", myOperators, myNumbers);
                     let tempResult = (Number(myNumbers[i]) * Number(myNumbers[i+1]));
-                    console.log("tempResult", tempResult);
                     myOperators.splice(i, 1);
-                    console.log(myOperators);
                     myNumbers.splice(i, 2, String(tempResult));
-                    console.log(myNumbers);
                 } 
                 if ( myOperators[i] === "/" ) {
-                    console.log("before:", myOperators, myNumbers);
                     let tempResult = Number((myNumbers[i]) / Number(myNumbers[i+1]));
-                    console.log("tempResult", tempResult);
-                    myOperators.splice(i, 1);
-                    console.log(myOperators);
+                     myOperators.splice(i, 1);
                     myNumbers.splice(i, 2, String(tempResult));
-                    console.log(myNumbers);
                 }
             }                     
             if (myOperators.includes("+" || "-")) {
                 for (let i=0; i<myOperators.length; i++) {
                 
                     if ( myOperators[i] === "+" ) {
-                        console.log("before:", myOperators, myNumbers);
                         let tempResult = (Number(myNumbers[i]) + Number(myNumbers[i+1]));
-                        console.log("tempResult", tempResult);
                         myOperators.splice(i, 1);
-                        console.log(myOperators);
                         myNumbers.splice(i, 2, String(tempResult));
-                        console.log(myNumbers);
                     } 
                     if ( myOperators[i] === "-" ) {
-                        console.log("before:", myOperators, myNumbers);
                         let tempResult = (Number(myNumbers[i]) - Number(myNumbers[i+1]));
-                        console.log("tempResult", tempResult);
                         myOperators.splice(i, 1);
-                        console.log(myOperators);
                         myNumbers.splice(i, 2, String(tempResult));
-                        console.log(myNumbers);
                     }
                 }
             }

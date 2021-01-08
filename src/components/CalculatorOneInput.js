@@ -37,45 +37,28 @@ function CalculatorOneInput ()
             for (let i=0; i<myOperators.length; i++) {
             
                 if ( myOperators[i] === "*" ) {
-                    console.log("before:", myOperators, myNumbers);
                     let tempResult = (Number(myNumbers[i]) * Number(myNumbers[i+1]));
-                    console.log("tempResult", tempResult);
                     myOperators.splice(i, 1);
-                    console.log(myOperators);
                     myNumbers.splice(i, 2, String(tempResult));
-                    console.log(myNumbers);
                 } 
                 if ( myOperators[i] === "/" ) {
-                    console.log("before:", myOperators, myNumbers);
                     let tempResult = Number((myNumbers[i]) / Number(myNumbers[i+1]));
-                    console.log("tempResult", tempResult);
                     myOperators.splice(i, 1);
-                    console.log(myOperators);
                     myNumbers.splice(i, 2, String(tempResult));
-                    console.log(myNumbers);
                 }
             }                     
             if (myOperators.includes("+" || "-")) {
-                console.log("Still stuff to do!");
                 for (let i=0; i<myOperators.length; i++) {
                 
                     if ( myOperators[i] === "+" ) {
-                        console.log("before:", myOperators, myNumbers);
                         let tempResult = (Number(myNumbers[i]) + Number(myNumbers[i+1]));
-                        console.log("tempResult", tempResult);
                         myOperators.splice(i, 1);
-                        console.log(myOperators);
                         myNumbers.splice(i, 2, String(tempResult));
-                        console.log(myNumbers);
                     } 
                     if ( myOperators[i] === "-" ) {
-                        console.log("before:", myOperators, myNumbers);
                         let tempResult = (Number(myNumbers[i]) - Number(myNumbers[i+1]));
-                        console.log("tempResult", tempResult);
                         myOperators.splice(i, 1);
-                        console.log(myOperators);
                         myNumbers.splice(i, 2, String(tempResult));
-                        console.log(myNumbers);
                     }
                 }
             }
