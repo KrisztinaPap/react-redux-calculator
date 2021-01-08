@@ -75,11 +75,11 @@ const CalculatorButtons = () => {
         myOperators = newOperatorArray;
         console.log("my operators: ", myOperators);
 
-     /*    doMultiplication();
+        doMultiplication();
         doDivision();
         doAddition();
         doSubtraction();
-        giveFinalResult(); */
+        giveFinalResult(); 
     }
 
     const doMultiplication = ( ) => {
