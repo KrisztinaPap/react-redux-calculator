@@ -3,9 +3,33 @@ import { useDispatch } from 'react-redux';
 import { addToHistory } from '../actions/history';
 
 
+
 const CalculatorButtons = () => {
 
-    const buttonLabels = ['C', '()', '%', '/', '7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+', '+/-', '0', '.', '=' ];
+    const buttonLabels = [
+        { "id" : 'C', "value" : 'C' },
+        { "id" : '()', "value" : '()' },
+        { "id" : '%', "value" : '%' },
+        { "id" : '/', "value" : '/' },
+        { "id" : '7', "value" : '7' },
+        { "id" : '8', "value" : '8' },
+        { "id" : '9', "value" : '9' },
+        { "id" : '*', "value" : '*' },
+        { "id" : '4', "value" : '4' },
+        { "id" : '5', "value" : '5' },
+        { "id" : '6', "value" : '6' },
+        { "id" : '-', "value" : '-' },
+        { "id" : '1', "value" : '1' },
+        { "id" : '2', "value" : '2' },
+        { "id" : '3', "value" : '3' },
+        { "id" : '+', "value" : '+' },
+        { "id" : '+/-', "value" : '+/-' },
+        { "id" : '0', "value" : '0' },
+        { "id" : '.', "value" : '.' },
+        { "id" : '=', "value" : '=' }
+    ];
+
+    const calculatorButtons = document.querySelectorAll('.calculator-button');
 
     return (
         <>
@@ -15,7 +39,7 @@ const CalculatorButtons = () => {
                     { 
                         buttonLabels.map( (button) => 
                             <button className="calculator-button">
-                                {button}
+                                {button.id}
                             </button>)
                     }
                 </div>

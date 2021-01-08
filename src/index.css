@@ -19,8 +19,8 @@
 }
 
 * {
-	margin: 0;
-	padding: 0;
+	margin: 0.2rem;
+	padding: 0.2rem;
 	box-sizing: border-box;
 	font-family: "Audiowide", cursive;
 	text-align: center;
@@ -36,14 +36,8 @@ p, li {
  
 }
 
-p {
-    padding: 0.4rem 0.2rem;
-}
-
 ul, li {
     text-align: left;
-    margin-left: 1rem;
-    margin-right: 1rem;
 }
 
 
@@ -52,8 +46,7 @@ h1 {
 }
 
 h2, h3 {
-	margin-top: 3rem;
-	padding-bottom: 1rem;
+	margin: 2rem auto;
 }
 
 .input-container {
