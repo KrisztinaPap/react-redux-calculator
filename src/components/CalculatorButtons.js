@@ -37,7 +37,12 @@ const CalculatorButtons = () => {
 
     const dispatch = useDispatch();
 
-    
+    const calculate = (event) => {
+        event.preventDefault();
+        doMath();
+        giveFinalResult();
+    }
+
     const handleButtonClick = (e) => {
         e.preventDefault();
 
@@ -45,26 +50,16 @@ const CalculatorButtons = () => {
         let newUserInput = e.target.value;
         console.log("new user input: ", newUserInput);
 
-        //Check if buttons clicked was '=' as that should submit form
-        if(newUserInput === '=')
-        {
-            console.log("pressed equal!");
-            document.getElementById('buttonForm').submit();
-        } else 
-        {
-            // Add newUserInput to a temporary equation string 
-            let tempUserEquation = userInput.concat(newUserInput);
-            console.log("temp user input string with new input: ", tempUserEquation);
+        // Add newUserInput to a temporary equation string 
+        let tempUserEquation = userInput.concat(newUserInput);
+        console.log("temp user input string with new input: ", tempUserEquation);
 
-            // Update userInput state to match temporary equation
-            setUserInput(tempUserEquation);        
-        }
+        // Update userInput state to match temporary equation
+        setUserInput(tempUserEquation);        
     };
 
-    const breakUpInput = (e) => {
-        e.preventDefault();
+    const breakUpInput = () => {
         myNumbers = userInput.split( /[*+/-]/gi );
-        console.log("my numbers: ", myNumbers);
 
         let operatorArray = userInput.split(/[0123456789]/);
         for (let i=0; i<operatorArray.length; i++) {
@@ -73,66 +68,54 @@ const CalculatorButtons = () => {
             }
         }       
         myOperators = newOperatorArray;
-        console.log("my operators: ", myOperators);
-
-        doMultiplication();
-        doDivision();
-        doAddition();
-        doSubtraction();
-        giveFinalResult(); 
     }
 
-    const doMultiplication = ( ) => {
-
-        while (myOperators.includes("*")) {
+    const doMath = () => {
+        breakUpInput();
+        if (myOperators.includes("*" || "/")) {
             for (let i=0; i<myOperators.length; i++) {
             
                 if ( myOperators[i] === "*" ) {
-                    let tempResult = (myNumbers[i] * myNumbers[i+1]);
+                    console.log("before:", myOperators, myNumbers);
+                    let tempResult = (Number(myNumbers[i]) * Number(myNumbers[i+1]));
+                    console.log("tempResult", tempResult);
                     myOperators.splice(i, 1);
-                    myNumbers.splice(i, 2, tempResult);
+                    console.log(myOperators);
+                    myNumbers.splice(i, 2, String(tempResult));
+                    console.log(myNumbers);
                 } 
-            }
-        }
-    }
-
-    const doDivision = ( ) => {
-
-        while (myOperators.includes("/")) {
-            for (let i=0; i<myOperators.length; i++) {
-            
-                if ( myOperators[i] === "/" ) {
-                    let tempResult = (myNumbers[i] / myNumbers[i+1]);
+                else if ( myOperators[i] === "/" ) {
+                    console.log("before:", myOperators, myNumbers);
+                    let tempResult = Number((myNumbers[i]) / Number(myNumbers[i+1]));
+                    console.log("tempResult", tempResult);
                     myOperators.splice(i, 1);
-                    myNumbers.splice(i, 2, tempResult);
-                } 
-            }
-        }
-    }
-
-    const doAddition = ( ) => {
-
-        while (myOperators.includes("+")) {
-            for (let i=0; i<myOperators.length; i++) {
-            
-                if ( myOperators[i] === "+" ) {
-                    let tempResult = (Number(myNumbers[i]) + Number(myNumbers[i+1]));
-                    myOperators.splice(i, 1);
-                    myNumbers.splice(i, 2, tempResult);
-                } 
-            }
-        }
-    }
-
-    const doSubtraction = ( ) => {
-        while (myOperators.includes("-")) {
-            for (let i=0; i<myOperators.length; i++) {
-       
-                if ( myOperators[i] === "-" ) {
-                    let tempResult = (Number(myNumbers[i]) - Number(myNumbers[i+1]));
-                    myOperators.splice(i, 1);
-                    myNumbers.splice(i, 2, tempResult);
-                } 
+                    console.log(myOperators);
+                    myNumbers.splice(i, 2, String(tempResult));
+                    console.log(myNumbers);
+                }
+            }                     
+            if (myOperators.includes("+" || "-")) {
+                for (let i=0; i<myOperators.length; i++) {
+                
+                    if ( myOperators[i] === "+" ) {
+                        console.log("before:", myOperators, myNumbers);
+                        let tempResult = (Number(myNumbers[i]) + Number(myNumbers[i+1]));
+                        console.log("tempResult", tempResult);
+                        myOperators.splice(i, 1);
+                        console.log(myOperators);
+                        myNumbers.splice(i, 2, String(tempResult));
+                        console.log(myNumbers);
+                    } 
+                    else if ( myOperators[i] === "-" ) {
+                        console.log("before:", myOperators, myNumbers);
+                        let tempResult = (Number(myNumbers[i]) - Number(myNumbers[i+1]));
+                        console.log("tempResult", tempResult);
+                        myOperators.splice(i, 1);
+                        console.log(myOperators);
+                        myNumbers.splice(i, 2, String(tempResult));
+                        console.log(myNumbers);
+                    }
+                }
             }
         }
     }
@@ -149,7 +132,7 @@ const CalculatorButtons = () => {
 
     return (
         <>
-            <form onSubmit={ breakUpInput } className="display-box" method="post">
+            <form onSubmit={ calculate } className="display-box" method="post">
 
                 <div className="calculator-display">{result}</div>
                 <div id="buttons-container">

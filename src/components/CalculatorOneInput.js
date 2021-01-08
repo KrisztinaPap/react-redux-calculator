@@ -13,9 +13,13 @@ function CalculatorOneInput ()
 
     const dispatch = useDispatch();
 
-
-    const breakUpInput = ( event ) => {
+    const calculate = (event) => {
         event.preventDefault();
+        doMath();
+        giveFinalResult();
+    }
+
+    const breakUpInput = () => {
         myNumbers = userInput.split( /[*+/-]/gi );
 
         let operatorArray = userInput.split(/[0123456789]/);
@@ -25,65 +29,54 @@ function CalculatorOneInput ()
             }
         }       
         myOperators = newOperatorArray;
-
-        doMultiplication();
-        doDivision();
-        doAddition();
-        doSubtraction();
-        giveFinalResult();
     }
 
-    const doMultiplication = ( ) => {
-
-        while (myOperators.includes("*")) {
+    const doMath = () => {
+        breakUpInput();
+        if (myOperators.includes("*" || "/")) {
             for (let i=0; i<myOperators.length; i++) {
             
                 if ( myOperators[i] === "*" ) {
-                    let tempResult = (myNumbers[i] * myNumbers[i+1]);
+                    console.log("before:", myOperators, myNumbers);
+                    let tempResult = (Number(myNumbers[i]) * Number(myNumbers[i+1]));
+                    console.log("tempResult", tempResult);
                     myOperators.splice(i, 1);
-                    myNumbers.splice(i, 2, tempResult);
+                    console.log(myOperators);
+                    myNumbers.splice(i, 2, String(tempResult));
+                    console.log(myNumbers);
                 } 
-            }
-        }
-    }
-
-    const doDivision = ( ) => {
-
-        while (myOperators.includes("/")) {
-            for (let i=0; i<myOperators.length; i++) {
-            
-                if ( myOperators[i] === "/" ) {
-                    let tempResult = (myNumbers[i] / myNumbers[i+1]);
+                else if ( myOperators[i] === "/" ) {
+                    console.log("before:", myOperators, myNumbers);
+                    let tempResult = Number((myNumbers[i]) / Number(myNumbers[i+1]));
+                    console.log("tempResult", tempResult);
                     myOperators.splice(i, 1);
-                    myNumbers.splice(i, 2, tempResult);
-                } 
-            }
-        }
-    }
-
-    const doAddition = ( ) => {
-
-        while (myOperators.includes("+")) {
-            for (let i=0; i<myOperators.length; i++) {
-            
-                if ( myOperators[i] === "+" ) {
-                    let tempResult = (Number(myNumbers[i]) + Number(myNumbers[i+1]));
-                    myOperators.splice(i, 1);
-                    myNumbers.splice(i, 2, tempResult);
-                } 
-            }
-        }
-    }
-
-    const doSubtraction = ( ) => {
-        while (myOperators.includes("-")) {
-            for (let i=0; i<myOperators.length; i++) {
-       
-                if ( myOperators[i] === "-" ) {
-                    let tempResult = (Number(myNumbers[i]) - Number(myNumbers[i+1]));
-                    myOperators.splice(i, 1);
-                    myNumbers.splice(i, 2, tempResult);
-                } 
+                    console.log(myOperators);
+                    myNumbers.splice(i, 2, String(tempResult));
+                    console.log(myNumbers);
+                }
+            }                     
+            if (myOperators.includes("+" || "-")) {
+                for (let i=0; i<myOperators.length; i++) {
+                
+                    if ( myOperators[i] === "+" ) {
+                        console.log("before:", myOperators, myNumbers);
+                        let tempResult = (Number(myNumbers[i]) + Number(myNumbers[i+1]));
+                        console.log("tempResult", tempResult);
+                        myOperators.splice(i, 1);
+                        console.log(myOperators);
+                        myNumbers.splice(i, 2, String(tempResult));
+                        console.log(myNumbers);
+                    } 
+                    else if ( myOperators[i] === "-" ) {
+                        console.log("before:", myOperators, myNumbers);
+                        let tempResult = (Number(myNumbers[i]) - Number(myNumbers[i+1]));
+                        console.log("tempResult", tempResult);
+                        myOperators.splice(i, 1);
+                        console.log(myOperators);
+                        myNumbers.splice(i, 2, String(tempResult));
+                        console.log(myNumbers);
+                    }
+                }
             }
         }
     }
@@ -100,7 +93,7 @@ function CalculatorOneInput ()
 
     return (
         <>
-            <form onSubmit={ breakUpInput } className="display-box" method="post">             
+            <form onSubmit={ calculate } className="display-box" method="post">             
                 
                 <p id="result" className="display-screen">
                     { userInput }
