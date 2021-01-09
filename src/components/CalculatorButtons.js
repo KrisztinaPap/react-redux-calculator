@@ -45,35 +45,54 @@ const CalculatorButtons = () => {
 
     const handleButtonClick = (e) => {
         e.preventDefault();
-
         
         // Capture the button value as newUserInput
         let newUserInput = e.target.value;
 
         // Add newUserInput to a temporary equation string 
         let tempUserEquation = userInput.concat(newUserInput);
-        let cleanTempUserEquation = tempUserEquation;
-         // Take care of any double operators
-        // ++ && --
-        if(tempUserEquation.includes("++" || "--" || "+-" || "-+"))
-        {
-            cleanTempUserEquation = tempUserEquation.replace("++", "+");
-            return cleanTempUserEquation;
-        }
-       /*  let cleanTempUserEquation = tempUserEquation.replace("++", "+");
-        cleanTempUserEquation = tempUserEquation.replace("--", "+");
-
-        // +- && -+
-        cleanTempUserEquation = tempUserEquation.replace("+-", "-");
-        cleanTempUserEquation = tempUserEquation.replace("-+", "-"); */
-;
+      
         // Update userInput state to match temporary equation
-        setUserInput(cleanTempUserEquation);  
-        
+        setUserInput(tempUserEquation);    
     };
 
-    const breakUpInput = () => {
+    const handleDoubleOperators = () => {
+        let simplifiedUserEquation = userInput;
+        let simplifiedUserEquationNoDoublePlus = "";
+        let simplifiedUserEquationNoDoubleMinus = "";
+        let simplifiedUserEquationPlusMinus = "";
+        let simplifiedUserEquationMinusPlus = "";
+        
+        console.log(simplifiedUserEquation);
 
+        // Take care of any double operators
+        while (simplifiedUserEquation.includes("++" || "--" || "+-" || "-+"))
+        {
+            // Handle double '+' signs
+            simplifiedUserEquationNoDoublePlus = simplifiedUserEquation.replace("++", "+");
+            simplifiedUserEquation = simplifiedUserEquationNoDoublePlus;
+
+            // Handle double '-' signs
+            simplifiedUserEquationNoDoubleMinus = simplifiedUserEquation.replace("--", "+");
+            simplifiedUserEquation = simplifiedUserEquationNoDoubleMinus;      
+            
+            // Handle '+-' combo
+            simplifiedUserEquationPlusMinus = simplifiedUserEquation.replace("+-", "-");
+            simplifiedUserEquation = simplifiedUserEquationPlusMinus;
+
+            // Handle '-+' combo
+            simplifiedUserEquationMinusPlus = simplifiedUserEquation.replace("-+", "-");
+            simplifiedUserEquation = simplifiedUserEquationMinusPlus;
+        };   
+
+        console.log(simplifiedUserEquation);
+        // Update userInput state to match temporary equation
+        setUserInput(simplifiedUserEquation);   
+    }
+
+    const breakUpInput = () => {
+        handleDoubleOperators();
+        //console.log(userInput);
         // Capture the numbers by breaking up the string by the operators
         myNumbers = userInput.split( /[*+/-]/gi );
 
