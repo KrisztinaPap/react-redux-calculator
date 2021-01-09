@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addToHistory } from '../actions/history';
 import History from './History';
 import handleDoubleOperators from './calculator-components/HandleDoubleOperators';
-
+import GetNumbersArray from './calculator-components/getNumbersArray';
 
 
 const CalculatorButtons = () => {
@@ -38,12 +38,6 @@ const CalculatorButtons = () => {
 
     const dispatch = useDispatch();
 
-    const calculate = (event) => {
-        event.preventDefault();
-        doMath();
-        giveFinalResult();
-    }
-
     const handleButtonClick = (e) => {
         e.preventDefault();
         
@@ -57,11 +51,17 @@ const CalculatorButtons = () => {
         setUserInput(tempUserEquation);    
     };
 
+    const calculate = (event) => {
+        event.preventDefault();
+        doMath();
+        giveFinalResult();
+    }
+
     const breakUpInput = () => {
         let simplifiedUserEquation = handleDoubleOperators(userInput);
 
         // Capture the numbers by breaking up the string by the operators
-        myNumbers = simplifiedUserEquation.split( /[*+/-]/gi );
+        myNumbers = GetNumbersArray(simplifiedUserEquation);
         console.log(myNumbers);
 
         // Capture the operators by removing the numbers (digits from 0-9)

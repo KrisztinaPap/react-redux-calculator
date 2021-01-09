@@ -25,9 +25,7 @@ const handleDoubleOperators = ( userInput ) => {
         simplifiedUserEquation = simplifiedUserEquationMinusPlus;
     };   
 
-    return simplifiedUserEquation;
-    // Update userInput state to match temporary equation
-    //setUserInput(simplifiedUserEquation);   
+    return simplifiedUserEquation; 
 }
 
 export default handleDoubleOperators;
