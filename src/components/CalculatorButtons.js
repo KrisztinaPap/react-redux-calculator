@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToHistory } from '../actions/history';
 import History from './History';
+import handleDoubleOperators from './calculator-components/HandleDoubleOperators';
 
 
 
@@ -56,7 +57,7 @@ const CalculatorButtons = () => {
         setUserInput(tempUserEquation);    
     };
 
-    const handleDoubleOperators = () => {
+    /* const handleDoubleOperators = () => {
         let simplifiedUserEquation = userInput;
         let simplifiedUserEquationNoDoublePlus = "";
         let simplifiedUserEquationNoDoubleMinus = "";
@@ -88,11 +89,11 @@ const CalculatorButtons = () => {
         console.log(simplifiedUserEquation);
         // Update userInput state to match temporary equation
         setUserInput(simplifiedUserEquation);   
-    }
+    } */
 
     const breakUpInput = () => {
-        handleDoubleOperators();
-        //console.log(userInput);
+        handleDoubleOperators(userInput);
+        
         // Capture the numbers by breaking up the string by the operators
         myNumbers = userInput.split( /[*+/-]/gi );
 
