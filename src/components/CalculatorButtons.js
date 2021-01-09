@@ -4,6 +4,7 @@ import { addToHistory } from '../actions/history';
 import History from './History';
 import handleDoubleOperators from './calculator-components/HandleDoubleOperators';
 import GetNumbersArray from './calculator-components/getNumbersArray';
+import GetOperatorsArray from './calculator-components/GetOperatorsArray';
 
 
 const CalculatorButtons = () => {
@@ -34,7 +35,6 @@ const CalculatorButtons = () => {
     const [ result, setResult ] = useState(0);
     let myNumbers = []; 
     let myOperators = [];
-    let newOperatorArray = [];
 
     const dispatch = useDispatch();
 
@@ -65,13 +65,7 @@ const CalculatorButtons = () => {
         console.log(myNumbers);
 
         // Capture the operators by removing the numbers (digits from 0-9)
-        let operatorArray = simplifiedUserEquation.split(/[0123456789]/);
-        for (let i=0; i<operatorArray.length; i++) {
-            if (operatorArray[i] !== "") {
-                newOperatorArray.push(operatorArray[i]);
-            }
-        }       
-        myOperators = newOperatorArray;
+        myOperators = GetOperatorsArray(simplifiedUserEquation);
         console.log(myOperators);
     }
 
