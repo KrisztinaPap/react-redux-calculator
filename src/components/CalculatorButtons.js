@@ -46,20 +46,38 @@ const CalculatorButtons = () => {
     const handleButtonClick = (e) => {
         e.preventDefault();
 
+        
         // Capture the button value as newUserInput
         let newUserInput = e.target.value;
 
         // Add newUserInput to a temporary equation string 
         let tempUserEquation = userInput.concat(newUserInput);
+        let cleanTempUserEquation = tempUserEquation;
+         // Take care of any double operators
+        // ++ && --
+        if(tempUserEquation.includes("++" || "--" || "+-" || "-+"))
+        {
+            cleanTempUserEquation = tempUserEquation.replace("++", "+");
+            return cleanTempUserEquation;
+        }
+       /*  let cleanTempUserEquation = tempUserEquation.replace("++", "+");
+        cleanTempUserEquation = tempUserEquation.replace("--", "+");
 
+        // +- && -+
+        cleanTempUserEquation = tempUserEquation.replace("+-", "-");
+        cleanTempUserEquation = tempUserEquation.replace("-+", "-"); */
+;
         // Update userInput state to match temporary equation
-        setUserInput(tempUserEquation);  
+        setUserInput(cleanTempUserEquation);  
         
     };
 
     const breakUpInput = () => {
+
+        // Capture the numbers by breaking up the string by the operators
         myNumbers = userInput.split( /[*+/-]/gi );
 
+        // Capture the operators by removing the numbers (digits from 0-9)
         let operatorArray = userInput.split(/[0123456789]/);
         for (let i=0; i<operatorArray.length; i++) {
             if (operatorArray[i] !== "") {
