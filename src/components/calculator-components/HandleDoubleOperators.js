@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
-
 const handleDoubleOperators = ( userInput ) => {
     let simplifiedUserEquation = userInput;
     let simplifiedUserEquationNoDoublePlus = "";
     let simplifiedUserEquationNoDoubleMinus = "";
     let simplifiedUserEquationPlusMinus = "";
     let simplifiedUserEquationMinusPlus = "";
-    
-    console.log(simplifiedUserEquation);
 
     // Take care of any double operators
     while (simplifiedUserEquation.includes("++" || "--" || "+-" || "-+"))
@@ -29,7 +25,6 @@ const handleDoubleOperators = ( userInput ) => {
         simplifiedUserEquation = simplifiedUserEquationMinusPlus;
     };   
 
-    console.log(simplifiedUserEquation);
     return simplifiedUserEquation;
     // Update userInput state to match temporary equation
     //setUserInput(simplifiedUserEquation);   

@@ -57,54 +57,22 @@ const CalculatorButtons = () => {
         setUserInput(tempUserEquation);    
     };
 
-    /* const handleDoubleOperators = () => {
-        let simplifiedUserEquation = userInput;
-        let simplifiedUserEquationNoDoublePlus = "";
-        let simplifiedUserEquationNoDoubleMinus = "";
-        let simplifiedUserEquationPlusMinus = "";
-        let simplifiedUserEquationMinusPlus = "";
-        
-        console.log(simplifiedUserEquation);
-
-        // Take care of any double operators
-        while (simplifiedUserEquation.includes("++" || "--" || "+-" || "-+"))
-        {
-            // Handle double '+' signs
-            simplifiedUserEquationNoDoublePlus = simplifiedUserEquation.replace("++", "+");
-            simplifiedUserEquation = simplifiedUserEquationNoDoublePlus;
-
-            // Handle double '-' signs
-            simplifiedUserEquationNoDoubleMinus = simplifiedUserEquation.replace("--", "+");
-            simplifiedUserEquation = simplifiedUserEquationNoDoubleMinus;      
-            
-            // Handle '+-' combo
-            simplifiedUserEquationPlusMinus = simplifiedUserEquation.replace("+-", "-");
-            simplifiedUserEquation = simplifiedUserEquationPlusMinus;
-
-            // Handle '-+' combo
-            simplifiedUserEquationMinusPlus = simplifiedUserEquation.replace("-+", "-");
-            simplifiedUserEquation = simplifiedUserEquationMinusPlus;
-        };   
-
-        console.log(simplifiedUserEquation);
-        // Update userInput state to match temporary equation
-        setUserInput(simplifiedUserEquation);   
-    } */
-
     const breakUpInput = () => {
-        handleDoubleOperators(userInput);
-        
+        let simplifiedUserEquation = handleDoubleOperators(userInput);
+
         // Capture the numbers by breaking up the string by the operators
-        myNumbers = userInput.split( /[*+/-]/gi );
+        myNumbers = simplifiedUserEquation.split( /[*+/-]/gi );
+        console.log(myNumbers);
 
         // Capture the operators by removing the numbers (digits from 0-9)
-        let operatorArray = userInput.split(/[0123456789]/);
+        let operatorArray = simplifiedUserEquation.split(/[0123456789]/);
         for (let i=0; i<operatorArray.length; i++) {
             if (operatorArray[i] !== "") {
                 newOperatorArray.push(operatorArray[i]);
             }
         }       
         myOperators = newOperatorArray;
+        console.log(myOperators);
     }
 
     const doMath = () => {
