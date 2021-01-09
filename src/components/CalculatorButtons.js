@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToHistory } from '../actions/history';
 import History from './History';
@@ -32,11 +32,15 @@ const CalculatorButtons = () => {
     ];
 
     const [ userInput, setUserInput ] = useState("");
+    const [ equation, setEquation ] = useState();
     const [ result, setResult ] = useState(0);
+    const dispatch = useDispatch();
     let myNumbers = []; 
     let myOperators = [];
 
-    const dispatch = useDispatch();
+    useEffect(() => {
+
+    });
 
     const handleButtonClick = (e) => {
         e.preventDefault();
@@ -58,15 +62,18 @@ const CalculatorButtons = () => {
     }
 
     const breakUpInput = () => {
+        // Simplify user input -> handle double operators ('++', '--', '+-' , '-+')
         let simplifiedUserEquation = handleDoubleOperators(userInput);
+        console.log("simplified", simplifiedUserEquation);
+        setEquation(simplifiedUserEquation); 
+        console.log("equation", equation);
+        
 
         // Capture the numbers by breaking up the string by the operators
         myNumbers = GetNumbersArray(simplifiedUserEquation);
-        console.log(myNumbers);
 
         // Capture the operators by removing the numbers (digits from 0-9)
         myOperators = GetOperatorsArray(simplifiedUserEquation);
-        console.log(myOperators);
     }
 
     const doMath = () => {
@@ -103,11 +110,13 @@ const CalculatorButtons = () => {
         }
     }
 
+    // Set result state to final number left in myNumbers, then add equation to history in Redux store with addEquation function
     const giveFinalResult = () => {
         setResult( myNumbers );
         addEquation();    
     }
- 
+    
+    // Add equation to history in Redux store
     const addEquation = ( ) => {
         let newHistory = `${userInput}=${myNumbers}`;
         dispatch(addToHistory(newHistory));    
