@@ -10,7 +10,6 @@ import GetOperatorsArray from './calculator-components/GetOperatorsArray';
 const CalculatorButtons = () => {
 
     const buttonLabels = [
-        { "id" : 'C', "value" : 'C', "type": "button" },
         { "id" : '()', "value" : '()', "type": "button" },
         { "id" : '%', "value" : '%', "type": "button" },
         { "id" : '/', "value" : '/', "type": "button" },
@@ -32,7 +31,7 @@ const CalculatorButtons = () => {
     ];
 
     const [ userInput, setUserInput ] = useState("");
-    const [ equation, setEquation ] = useState();
+    //const [ equation, setEquation ] = useState();
     const [ result, setResult ] = useState(0);
     const dispatch = useDispatch();
     let simplifiedUserEquation = "";
@@ -41,7 +40,6 @@ const CalculatorButtons = () => {
     let myOperators = [];
 
     useEffect(() => {
-        console.log("Equation-change!");
     }, [ result ]);
 
     const handleButtonClick = (e) => {
@@ -66,10 +64,7 @@ const CalculatorButtons = () => {
     const breakUpInput = () => {
         // Simplify user input -> handle double operators ('++', '--', '+-' , '-+')
         simplifiedUserEquation = handleDoubleOperators(userInput);
-        console.log("simplified", simplifiedUserEquation);
-        setEquation(simplifiedUserEquation); 
-        console.log("equation", equation);
-    
+        //setEquation(simplifiedUserEquation);     
 
         // Capture the numbers by breaking up the string by the operators
         myNumbers = GetNumbersArray(simplifiedUserEquation);
@@ -135,21 +130,39 @@ const CalculatorButtons = () => {
     // Set result state to final number left in myNumbers, then add equation to history in Redux store with addEquation function
     const giveFinalResult = () => {
         setResult( myNumbers );
-        addEquation();    
+        addEquation();  
+        myNumbers[0] = myNumbers; 
+        myOperators = [];  
     }
     
     // Add equation to history in Redux store
-    const addEquation = ( ) => {
+    const addEquation = () => {
         newHistory = `${simplifiedUserEquation}=${myNumbers}`;
-        dispatch(addToHistory(newHistory));    
-   }
+        if(newHistory !== "=")
+        {
+            dispatch(addToHistory(newHistory));    
+        }
+    }
+
+    // Clears/resets the calculator
+    const clearCalculator = () => {
+        setResult(0);
+        console.log(result);
+        setUserInput("");
+        simplifiedUserEquation = "";
+        newHistory = "";
+        myNumbers = []; 
+        myOperators = [];
+    }
+
 
     return (
         <>
             <form onSubmit={ calculate } className="display-box" method="post">
 
-                <div className="calculator-display">{result}</div>
+                <div className="calculator-display">{result ? result : 0}</div>
                 <div id="buttons-container">
+                    <button className="calculator-button" value="C" onClick={ () => clearCalculator() }>C</button>
                     { 
                         buttonLabels.map( (button) => 
                             <button 
