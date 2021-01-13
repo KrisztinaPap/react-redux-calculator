@@ -35,12 +35,14 @@ const CalculatorButtons = () => {
     const [ equation, setEquation ] = useState();
     const [ result, setResult ] = useState(0);
     const dispatch = useDispatch();
+    let simplifiedUserEquation = "";
+    let newHistory = "";
     let myNumbers = []; 
     let myOperators = [];
 
     useEffect(() => {
         console.log("Equation-change!");
-    }, [ equation ]);
+    }, [ result ]);
 
     const handleButtonClick = (e) => {
         e.preventDefault();
@@ -63,7 +65,7 @@ const CalculatorButtons = () => {
 
     const breakUpInput = () => {
         // Simplify user input -> handle double operators ('++', '--', '+-' , '-+')
-        let simplifiedUserEquation = handleDoubleOperators(userInput);
+        simplifiedUserEquation = handleDoubleOperators(userInput);
         console.log("simplified", simplifiedUserEquation);
         setEquation(simplifiedUserEquation); 
         console.log("equation", equation);
@@ -71,50 +73,63 @@ const CalculatorButtons = () => {
 
         // Capture the numbers by breaking up the string by the operators
         myNumbers = GetNumbersArray(simplifiedUserEquation);
-        console.log(myNumbers);
 
         // Capture the operators by removing the numbers (digits from 0-9)
         myOperators = GetOperatorsArray(simplifiedUserEquation);
-        console.log(myOperators);
     }
 
     const doMath = () => {
         breakUpInput();
-        console.log(myOperators);
-        if (myOperators.includes("*" || "/")) {
+        do {
+            if (myOperators.includes("*")) {
 
-            for (let i=0; i<myOperators.length; i++) {
-            
-                if ( myOperators[i] === "*" ) {
-                    let tempResult = (Number(myNumbers[i]) * Number(myNumbers[i+1]));
-                    myOperators.splice(i, 1);
-                    myNumbers.splice(i, 2, String(tempResult));
+                for (let i=0; i<myOperators.length; i++) {
+                
+                    if ( myOperators[i] === "*" ) {
+                        let tempResult = (Number(myNumbers[i]) * Number(myNumbers[i+1]));
+                        myOperators.splice(i, 1);
+                        myNumbers.splice(i, 2, String(tempResult));
+                    } 
+                }   
+            }        
+            if (myOperators.includes("/")) {
+    
+                for (let i=0; i<myOperators.length; i++) {
+                
+                    if ( myOperators[i] === "/" ) {
+                        let tempResult = Number((myNumbers[i]) / Number(myNumbers[i+1]));
+                         myOperators.splice(i, 1);
+                        myNumbers.splice(i, 2, String(tempResult));
+                    }
+                }   
+            }                     
+            if (myOperators.includes("+")) {
+    
+                for (let i=0; i<=myOperators.length; i++) {
+                
+                    if ( myOperators[i] === "+" ) { 
+                      let tempResult = (Number(myNumbers[i]) + Number(myNumbers[i+1]));
+                        myOperators.splice(i, 1);
+                        myNumbers.splice(i, 2, String(tempResult));
+                        console.log(myNumbers);
+                        console.log(myOperators);
+                    } 
                 } 
-                if ( myOperators[i] === "/" ) {
-                    let tempResult = Number((myNumbers[i]) / Number(myNumbers[i+1]));
-                     myOperators.splice(i, 1);
-                    myNumbers.splice(i, 2, String(tempResult));
-                }
-            }   
-        }                  
-        if (myOperators.includes("+" || "-")) {
-            console.log("There's + or - in there!");
-            console.log(myOperators);
-
-            for (let i=0; i<myOperators.length; i++) {
-            
-                if ( myOperators[i] === "+" ) {
-                    let tempResult = (Number(myNumbers[i]) + Number(myNumbers[i+1]));
-                    myOperators.splice(i, 1);
-                    myNumbers.splice(i, 2, String(tempResult));
-                } 
-                if ( myOperators[i] === "-" ) {
-                    let tempResult = (Number(myNumbers[i]) - Number(myNumbers[i+1]));
-                    myOperators.splice(i, 1);
-                    myNumbers.splice(i, 2, String(tempResult));
-                }
             }
-        }
+            if (myOperators.includes("-")) {
+                for (let i=0; i<=myOperators.length; i++) {
+        
+                    if ( myOperators[i] === "-" ) {
+                        let tempResult = (Number(myNumbers[i]) - Number(myNumbers[i+1]));
+                        myOperators.splice(i, 1);
+                        myNumbers.splice(i, 2, String(tempResult));
+                        console.log(myNumbers);
+                        console.log(myOperators);
+                    }
+                } 
+            }
+        } while(myOperators.length < 0);
+     
     }
 
     // Set result state to final number left in myNumbers, then add equation to history in Redux store with addEquation function
@@ -125,7 +140,7 @@ const CalculatorButtons = () => {
     
     // Add equation to history in Redux store
     const addEquation = ( ) => {
-        let newHistory = `${equation}=${myNumbers}`;
+        newHistory = `${simplifiedUserEquation}=${myNumbers}`;
         dispatch(addToHistory(newHistory));    
    }
 
